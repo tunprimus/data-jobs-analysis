@@ -42,9 +42,20 @@ Database Load
 7. Run the following code to check that the data has been loaded
     - SELECT * FROM job_postings_fact LIMIT 100;
 
+
 */
 
 
 SELECT *
 FROM job_postings_fact
 LIMIT 100;
+
+
+
+/*
+
+N.B.: UPDATE - A more streamlined and combined CSV can be obtained from Hugging Face dataset at: https://huggingface.co/datasets/lukebarousse/data_jobs
+
+However, it will not enable the creation of the tables indicated with the scripts and codes listed in this project.
+
+*/
