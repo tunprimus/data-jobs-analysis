@@ -1,0 +1,685 @@
+/**
+* Generic Styling
+*/
+
+/* -------------- */
+/* Root variables */
+/* -------------- */
+:root {
+	--dual-theme-grey: #777777;
+	--dual-theme-grey: rgb(120, 120, 120);
+	--dual-theme-grey: hsl(0, 0%, 47%);
+
+	--responsive-space: calc(8px + 1.5625vw);
+	--responsive-space--M: calc(16px + 1.5625vw);
+
+	--slide-slider-height: 25vh;
+
+	-moz-tab-size: 4 !important;
+	tab-size: 4 !important;
+	color-scheme: light dark;
+}
+
+/* -------------------------------------- */
+/*              RESETS                    */
+/* -------------------------------------- */
+*,
+*::before,
+*::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	min-width: 0;
+	max-width: 100%;
+	overflow-x: hidden;
+	position: relative;
+}
+
+*::before,
+*::after {
+	text-decoration: inherit;
+	vertical-align: inherit;
+}
+
+.hidden,
+[hidden] {
+	display: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
+p {
+	max-width: 65ch;
+	text-wrap: pretty;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
+h1:not([class]),
+h2:not([class]),
+h3:not([class]),
+h4:not([class]),
+h5:not([class]),
+h6:not([class]) {
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-block: 0.75em;
+	line-height: 1.25;
+	text-wrap: balance;
+	letter-spacing: -0.05ch;
+}
+
+/* HTML5 blocks - needed in older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+	display: block;
+}
+
+ol,
+ul {
+	list-style: none;
+	list-style-position: unset;
+}
+
+ol[role="list"],
+ul[role="list"] {
+	list-style: none;
+	list-style-position: unset;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+label,
+summary {
+	touch-action: manipulation;
+}
+
+/**
+ * @workaround Remove focus from tabindex="-1" elements which are only script focusable
+ * @link https://code.google.com/p/chromium/issues/detail?id=37721
+ */
+[tabindex="-1"]:focus {
+	outline: none;
+}
+
+/**
+ * Make underline position and width constant regardless of text size and weight.
+		(0.0625rem = 1px underline for 16px root font size)
+ * @link https://danburzo.ro/snippets/css-reset/
+*/
+a {
+	text-underline-offset: 0.15em;
+	text-decoration-thickness: max(1px, 0.0625rem);
+}
+
+a,
+a:link,
+a:visited,
+a:focus,
+a:hover,
+a:active {
+	text-decoration: inherit;
+	color: inherit;
+	display: inline-block;
+	background-color: transparent;
+	word-wrap: break-word;
+}
+
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+	color: currentColor;
+}
+
+audio,
+img,
+picture,
+video,
+iframe,
+canvas,
+object,
+embed,
+svg  {
+	display: block;
+	max-width: 100%;
+	max-inline-size: 100%;
+	height: auto;
+	border-style: none;
+}
+
+img {
+	width: auto\9;
+	width: inherit; /* This makes auto-resizing with max-width 100% and height auto work in IE8 */
+	max-height: 100%;
+	max-width: 100%;
+	max-inline-size: 100%;
+	position: relative;
+}
+
+/**
+ * Make failed images have a fallback message
+ * @link https://codepen.io/t_afif/pen/QwbLwEb
+*/
+img::after {
+	content: "We failed to load the image of \A'"attr(alt) "'\A 😞"/ " ";
+	position: absolute;
+	inset: 0;
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	place-items: center;
+	text-align: center;
+	background-color: #EEEEEE;
+	border: 0.125rem dashed;
+	font: bold 1.6em/1.5 system-ui;
+	color: #E80E0D;
+	white-space: pre-wrap;
+}
+
+audio:not([controls]) {
+	display: none;
+}
+
+svg {
+	fill: currentColor;
+	overflow: hidden;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font: inherit;
+	font-size: 100%;
+	letter-spacing: inherit;
+	word-spacing: inherit;
+	vertical-align: middle;
+	color: currentColor;
+}
+
+input,
+textarea {
+	-o-user-select: auto;
+	-ms-user-select: auto;
+	-moz-user-select: auto;
+	-webkit-user-select: auto;
+	user-select: auto;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	-moz-appearance: button;
+	-webkit-appearance: button;
+	appearance: button;
+	cursor: pointer;
+}
+
+button:disabled,
+[type="button"]:disabled,
+[type="reset"]:disabled,
+[type="submit"]:disabled {
+	cursor: default;
+}
+
+input:focus,
+button:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+}
+
+input[type="button"] {
+	cursor: pointer;
+}
+
+[type="button"],
+[type="reset"],
+[type="submit"],
+[type="image"],
+[type="checkbox"],
+[type="radio"] {
+	cursor: pointer;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+	font-size: 16px;
+}
+
+[type="number"] {
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+
+/**
+* What is Cross-Browser Compatibility? How to Build Websites that Work Everywhere
+* @link https://www.freecodecamp.org/news/what-is-cross-browser-compatibility/
+*/
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #909090;
+	opacity: 1; /* Firefox */
+}
+
+input.studentid:-ms-input-placeholder { /* Microsoft Edge */
+	color: #909090;
+}
+
+button {
+	border: transparent;
+	border-radius: 0.8rem;
+	font-family: inherit;
+	color: inherit;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+button[disabled] {
+	background-color: inherit;
+	background-color: var(--dual-theme-grey);
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+li {
+	overflow-wrap: break-word;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+	font-weight: 400;
+}
+
+small {
+	font-size: 80%;
+}
+
+sup,
+sub {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+table {
+	border-color: inherit;
+	border-collapse: collapse;
+	text-indent: 0;
+	max-width: 100%;
+	margin-bottom: var(--responsive-space--M);
+}
+
+caption {
+	text-align: left;
+}
+
+th,
+td {
+	text-align: start;
+	vertical-align: top;
+}
+
+th {
+	font-weight: bold;
+}
+
+textarea {
+	resize: vertical;
+	white-space: revert;
+}
+
+textarea:not([rows]) {
+	min-height: 10rem;
+}
+
+details {
+	display: block;
+}
+
+details summary {
+	cursor: pointer;
+}
+
+summary {
+	display: list-item;
+}
+
+hr {
+	display: block;
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+	border-top-width: 0.0625rem;
+	margin: 0;
+	clear: both;
+	color: inherit;
+}
+
+code {
+	word-wrap: break-word;
+}
+
+pre {
+	font-family: monospace;
+	font-size: inherit;
+	display: block;
+	overflow: auto;
+	tab-size: 4;
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+code,
+kbd,
+samp {
+	font-family: monospace;
+	font-size: inherit;
+}
+
+progress {
+	vertical-align: baseline;
+}
+
+:-moz-focusring {
+	outline: auto;
+}
+
+select:disabled {
+	opacity: inherit;
+}
+
+[contenteditable]:focus {
+	outline: auto;
+}
+
+/* For Chrome, Firefox, and Edge */
+.customised-scrollbar {
+	-webkit-scrollbar: thin;
+	scrollbar-width: thin;
+	-webkit-scrollbar-color: #C0C0C0 #F0F0F0;
+	scrollbar-color: #C0C0C0 #F0F0F0;
+}
+
+/* For Safari */
+.mostly-customised-scrollbar::-webkit-scrollbar {
+	width: 5px;
+	height: 8px;
+	background-color: #AAAAAA; /* or add it to the track */
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+	height: auto;
+}
+
+[type="search"] {
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
+	outline-offset: -2px;
+}
+
+::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+
+:is(a, button, input, textarea, summary) {
+	--outline-size: max(2px, 0.08em);
+	--outline-style: solid;
+	--outline-colour: currentColor;
+}
+
+:is(a, button, input, textarea, summary):focus {
+	outline: var(--outline-size) var(--outline-style) var(--outline-colour);
+	outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+:is(a, button, input, textarea, summary):focus-visible {
+	outline: var(--outline-size) var(--outline-style) var(--outline-colour);
+	outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+:is(a, button, input, textarea, summary):focus:not(:focus-visible) {
+	outline: none;
+}
+
+:target {
+	scroll-margin-block: 5ex;
+}
+
+/* For frameworks */
+#root,
+#__next {
+	isolation: isolate;
+}
+
+/*-- End of Resets --*/
+
+.body {
+	min-height: 100vh;
+	max-width: 60rem;
+	padding-top: 10vh;
+	background-color: #EEEEEE;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	line-height: 1.5;
+}
+
+/* Change web component from inline display */
+.web-component {
+	display: block;
+}
+
+.slider-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	background-image: linear-gradient(149deg, rgb(247, 0, 255) 0%, rgb(255, 145, 0) 100%);
+}
+
+.slider {
+	position: relative;
+	width: 100%;
+	max-width: 37.5rem;
+	height: var(--slide-slider-height);
+	margin: var(--responsive-space);
+	text-align: center;
+	border-radius: 1.25rem;
+	overflow: hidden;
+}
+
+.slides {
+	position: relative;
+	display: flex;
+	overflow-x: scroll;
+	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
+}
+
+.slide:nth-of-type(even) {
+	background-color: rgb(250, 246, 212);
+}
+
+.slide {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	width: 100%;
+	height: var(--slide-slider-height);
+	background-color: white;
+	transform-origin: center center;
+	transform: scale(1);
+	scroll-snap-align: center;
+}
+
+.slide__content {
+	font-family: sans-serif;
+	font-size: 2.5rem;
+	font-weight: bold;
+}
+
+.slide__anchor {
+	background: none;
+	border: none;
+}
+
+.slide__prev,
+.slider::before {
+	left: 5%;
+	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+}
+
+.slide__next,
+.slider::after {
+	right: 5%;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.slider::before,
+.slider::after,
+.slide__prev,
+.slide__next {
+	box-sizing: border-box;
+	position: absolute;
+	top: 48%;
+	width: 2.188rem;
+	height: 2.188rem;
+	padding: 0.1875rem;
+	border: solid black;
+	border-width: 0 0.25rem 0.25rem 0;
+}
+
+.slider::before,
+.slider::after {
+	content: "";
+	background: none;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.slider__nav {
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 5%;
+	left: 50%;
+	width: 12.5rem;
+	margin-left: -6.25rem;
+	text-align: center;
+}
+
+.slider__navlink {
+	display: inline-block;
+	width: 0.938rem;
+	height: 0.938rem;
+	margin: 0 0.625rem 0 0.625rem;
+	background-color: black;
+	border-radius: 50%;
+}
+
+.tabs {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.tabs__label {
+	order: 1;
+	display: block;
+	padding: 1rem 2rem;
+	margin-right: 0.2rem;
+	background-color: #90CAF9;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.tabs__tab {
+	order: 99;
+	flex-grow: 1;
+	width: 100%;
+	padding: 1rem;
+	background-color: #FFFFFF;
+	display: none;
+}
+
+
+.tabs__radio {
+		display: none;
+	}
+
+.tabs__radio:checked + .tabs__label {
+	background-color: #FFFFFF;
+}
+
+.tabs__radio:checked + .tabs__label + .tab {
+	display: block;
+}
+
+@media screen and (max-width: 35rem) {
+	.tabs__tab,
+	.tabs__label {
+		order: initial;
+	}
+
+	.tabs__label {
+		width: 100%;
+		margin-right: 0;
+		margin-top: 0.2rem;
+	}
+}

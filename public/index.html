@@ -1,11 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB" dir="ltr">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Data Professionals Job Postings Analysis</title>
+	<link rel="stylesheet" href="./css/styles.css">
 </head>
-<body>
+<body class="body">
+	<!-- Header -->
+	<header class="header"></header>
 
+	<!-- Main -->
+	<main class="main">
+		<h1 class="h1">Data Professionals Job Postings Analysis</h1>
+		<!-- Section of Slider -->
+		<section class="section slider-container">
+			<!-- `slider` is like the ‘screen’, or the viewport that will display all your slides -->
+			<slider-component class="web-component slider slider-container__slider">
+				<!-- `slides` will hold your slides. This is the element that actually scrolls to give the slider effect -->
+				<slides-component class="web-component slides slider__slides">
+					<!-- Slide 001 -->
+					<div class="slide slides__slide" id="slide_001">
+						<span class="slide__content">1</span>
+						<a href="#slide_005" class="anchor slide__anchor slide__prev" title="Prev"></a>
+						<a href="#slide_002" class="anchor slide__anchor slide__next" title="Next"></a>
+					</div>
+					<!-- Slide 002 -->
+					<div class="slide slides__slide" id="slide_002">
+						<span class="slide__content">2</span>
+						<a href="#slide_001" class="anchor slide__anchor slide__prev" title="Prev"></a>
+						<a href="#slide_003" class="anchor slide__anchor slide__next" title="Next"></a>
+					</div>
+					<!-- Slide 003 -->
+					<div class="slide slides__slide" id="slide_003">
+						<span class="slide__content">3</span>
+						<a href="#slide_002" class="anchor slide__anchor slide__prev" title="Prev"></a>
+						<a href="#slide_004" class="anchor slide__anchor slide__next" title="Next"></a>
+					</div>
+					<!-- Slide 004 -->
+					<div class="slide slides__slide" id="slide_004">
+						<span class="slide__content">4</span>
+						<a href="#slide_003" class="anchor slide__anchor slide__prev" title="Prev"></a>
+						<a href="#slide_005" class="anchor slide__anchor slide__next" title="Next"></a>
+					</div>
+					<!-- Slide 005 -->
+					<div class="slide slides__slide" id="slide_005">
+						<span class="slide__content">5</span>
+						<a href="#slide_004" class="anchor slide__anchor slide__prev" title="Prev"></a>
+						<a href="#slide_001" class="anchor slide__anchor slide__next" title="Next"></a>
+					</div>
+					<!-- Breadcrumbs -->
+					<slider-breadcrumbs class="web-component slider__nav">
+						<a href="#slide_001" class="slider__navlink" title="Jump to slide 1"></a>
+						<a href="#slide_002" class="slider__navlink" title="Jump to slide 2"></a>
+						<a href="#slide_003" class="slider__navlink" title="Jump to slide 3"></a>
+						<a href="#slide_004" class="slider__navlink" title="Jump to slide 4"></a>
+						<a href="#slide_005" class="slider__navlink" title="Jump to slide 5"></a>
+					</slider-breadcrumbs>
+				</slides-component>
+			</slider-component>
+		</section>
+		<!-- Section of Tabs and Contents -->
+		<section class="section tabs tabs-wrapper">
+			<!-- 1st Group of Tabs and Contents -->
+			<input type="radio" name="tabs" id="tab_01" class="input-radio tabs__radio">
+			<label for="tab_01" class="label input-label tabs__label">Tab 01</label>
+			<div class="tab tabs__tab tab01__content">
+				<h2 class="h2 tab__heading tab01__heading">Tab 01 Content</h2>
+				<p class="p tab__text tab01__text">Nor childe stalked and to atonement his from, what sore bliss to nor formed vile. Pillared of visit and nor his, aught the glare he lands when visit felt, from and dote him breast but aught any bacchanals whose. Thy open from amiss childe flash cared call objects, his rhyme.</p>
+				<p class="p tab__text tab01__text">Open perched quoth him unbroken sure my thy smiling. Thy all name distant this some wrought deep, prophet came morrow while again seraphim land one and a. Bird what grim implore that truly. Within loneliness dirges implore meant weak still. And caught i a the. Then then tinkled late quoth.</p>
+			</div>
+
+			<!-- 2nd Group of Tabs and Contents -->
+			<input type="radio" name="tabs" id="tab_02" class="input-radio tabs__radio">
+			<label for="tab_02" class="label input-label tabs__label">Tab 02</label>
+			<div class="tab tabs__tab tab02__content">
+				<h2 class="h2 tab__heading tab02__heading">Tab 02 Content</h2>
+				<p class="p tab__text tab02__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
+				<p class="p tab__text tab02__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="footer__item">
+        <!-- http://billpatrianakos.me/blog/2014/12/31/a-better-way-to-display-the-current-year-i -->
+        <p>&copy; Copyright 2025<script type="text/javascript">new Date().getFullYear() > 2025 && document.write("-" + new Date().getFullYear()); </script>, tunprimus.</p>
+      </div>
+	</footer>
 </body>
 </html>
