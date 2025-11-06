@@ -8,11 +8,12 @@
 </head>
 <body class="body">
 	<!-- Header -->
-	<header class="header"></header>
+	<header class="header">
+		<h1 class="h1">Data Professionals Job Postings Analysis</h1>
+	</header>
 
 	<!-- Main -->
 	<main class="main">
-		<h1 class="h1">Data Professionals Job Postings Analysis</h1>
 		<!-- Section of Slider -->
 		<section class="section slider-container">
 			<!-- `slider` is like the ‘screen’, or the viewport that will display all your slides -->
@@ -21,31 +22,31 @@
 				<slides-component class="web-component slides slider__slides">
 					<!-- Slide 001 -->
 					<div class="slide slides__slide" id="slide_001">
-						<span class="slide__content">1</span>
+						<img class="slide__content" src="./images/top-10-features-predicting-yearly-salary-for-data-professionals.svg" alt="Top 10 features predicting yearly salary for data professionals" loading="lazy">
 						<a href="#slide_005" class="anchor slide__anchor slide__prev" title="Prev"></a>
 						<a href="#slide_002" class="anchor slide__anchor slide__next" title="Next"></a>
 					</div>
 					<!-- Slide 002 -->
 					<div class="slide slides__slide" id="slide_002">
-						<span class="slide__content">2</span>
+						<img class="slide__content" src="./images/top-7-in-demand-skills-for-data-scientists.svg" alt="Top 7 demanded skills for data scientists" loading="lazy">
 						<a href="#slide_001" class="anchor slide__anchor slide__prev" title="Prev"></a>
 						<a href="#slide_003" class="anchor slide__anchor slide__next" title="Next"></a>
 					</div>
 					<!-- Slide 003 -->
 					<div class="slide slides__slide" id="slide_003">
-						<span class="slide__content">3</span>
+						<img class="slide__content" src="./images/datanerd-jobs-ERD.svg" alt="Datanerd ERD diagram for databases" loading="lazy">
 						<a href="#slide_002" class="anchor slide__anchor slide__prev" title="Prev"></a>
 						<a href="#slide_004" class="anchor slide__anchor slide__next" title="Next"></a>
 					</div>
 					<!-- Slide 004 -->
 					<div class="slide slides__slide" id="slide_004">
-						<span class="slide__content">4</span>
+						<img class="slide__content" src="./images/comparison-remote-vs-onsite-job-offer-worldwide-nigeria-germany.svg" alt="Remote vs onsite job offers for data professionals" loading="lazy">
 						<a href="#slide_003" class="anchor slide__anchor slide__prev" title="Prev"></a>
 						<a href="#slide_005" class="anchor slide__anchor slide__next" title="Next"></a>
 					</div>
 					<!-- Slide 005 -->
 					<div class="slide slides__slide" id="slide_005">
-						<span class="slide__content">5</span>
+						<img class="slide__content" src="./images/comparison-salary-ranges-worldwide-nigeria-germany.svg" alt="Comparison salary ranges for data professionals worldwide, in Nigeria and Germany" loading="lazy">
 						<a href="#slide_004" class="anchor slide__anchor slide__prev" title="Prev"></a>
 						<a href="#slide_001" class="anchor slide__anchor slide__next" title="Next"></a>
 					</div>
@@ -64,20 +65,330 @@
 		<section class="section tabs tabs-wrapper">
 			<!-- 1st Group of Tabs and Contents -->
 			<input type="radio" name="tabs" id="tab_01" class="input-radio tabs__radio">
-			<label for="tab_01" class="label input-label tabs__label">Tab 01</label>
+			<label for="tab_01" class="label input-label tabs__label">Goals</label>
 			<div class="tab tabs__tab tab01__content">
-				<h2 class="h2 tab__heading tab01__heading">Tab 01 Content</h2>
-				<p class="p tab__text tab01__text">Nor childe stalked and to atonement his from, what sore bliss to nor formed vile. Pillared of visit and nor his, aught the glare he lands when visit felt, from and dote him breast but aught any bacchanals whose. Thy open from amiss childe flash cared call objects, his rhyme.</p>
-				<p class="p tab__text tab01__text">Open perched quoth him unbroken sure my thy smiling. Thy all name distant this some wrought deep, prophet came morrow while again seraphim land one and a. Bird what grim implore that truly. Within loneliness dirges implore meant weak still. And caught i a the. Then then tinkled late quoth.</p>
+				<h2 class="h2 tab__heading tab01__heading">About The Project</h2>
+				<p class="p tab__text tab01__text">As an aspiring data nerd looking to analyse top-paying roles and skill by using SQL queries to explore a large dataset about role(s) of interest.</p>
+				<h3 class="h3 tab__subheading tab01__subheading">Questions</h3>
+				<p class="p tab__text tab01__text">The following questions were important to be answered.</p>
+				<ol class="ol tab__list">
+					<li class="li tab__list-item tab__list-item-01">What are the top-paying jobs for roles that interest me?</li>
+					<li class="li tab__list-item tab__list-item-02">What are the skills required for these top-paying roles?</li>
+					<li class="li tab__list-item tab__list-item-03">What are the most in-demand skills for these roles?</li>
+					<li class="li tab__list-item tab__list-item-04">What are the top skills based on salary for these roles?</li>
+					<li class="li tab__list-item tab__list-item-05">What are the most optimal skills to learn? (Optimal: High Demand AND High Paying).</li>
+					<li class="li tab__list-item tab__list-item-06">What are the features and discoveries related to Nigeria and Germany?</li>
+					<li class="li tab__list-item tab__list-item-07">What features are important in determining yearly salary?</li>
+					<li class="li tab__list-item tab__list-item-08">What challenges were faced during this project and how were they tackled?</li>
+				</ol>
+				<section id="accordion" class="section accordion">
+					<!-- 1st details element -->
+					<details class="details details--01" name="faq-accordion">
+						<summary class="summary details__summary">Data Sourcing</summary>
+						<p class="p details__text">The required CSV files are available for download from the following sqliteviz link: <a href="https://lukeb.co/sql_jobs_db" target="_blank">https://lukeb.co/sql_jobs_db</a>.</p>
+						<p class="p details__text">The following are the relevant steps.</p>
+						<p class="p details__text">
+							- select each of the 4 tables ("Jobs Fact Table", "Company Dim Table", "Skills Dim Table", "Skill-Job Dim Table" )</p>
+						<p class="p details__text">
+							- for each table, go to the extreme right vertical pane and click on the "Export result set to CSV file" button towards the bottom.</p>
+						<p class="p details__text">Note the path to the downloaded CSV files.</p>
+						<p class="p details__text">N.B.: UPDATE - A more streamlined and combined CSV can be obtained from Hugging Face dataset at:  <a href="https://huggingface.co/datasets/lukebarousse/data_jobs" target="_blank">https://huggingface.co/datasets/lukebarousse/data_jobs</a>. However, it will not enable the creation of the tables indicated with the scripts and codes listed in this project.</p>
+					</details>
+					<!-- 2nd details element -->
+					<details class="details details--02" name="faq-accordion">
+						<summary class="summary details__summary">Database Tables Creation</summary>
+						<p class="p details__text">Postgres database was the main focus of this project. However, SQLite was also used to improve the versatility of the queries used.</p>
+						<p class="p details__text">The following are the steps for Postgres database:</p>
+						<pre class="pre">
+							<code class="code">
+								1. Make sure Postgres is installed.
+								2. Install pgAdmin.
+								3. Run pgAdmin.
+								4. Copy the code(s) from the sql files named `1_create_database.sql` and `2_create_postgres_tables.sql`; located in the `sql` folder.
+							</code>
+						</pre>
+						<p class="p details__text">The following are the steps for SQLite database:</p>
+						<pre class="pre">
+							<code class="code">
+								1. Create a new SQLite database.
+								2. Open the database with sqlite shell, SQLite browser or any programming language of your choice.
+								3. Copy the code(s) from the sql files named `1_create_database.sql` and `2_create_sqlite_tables.sql`.
+							</code>
+						</pre>
+					</details>
+					<!-- 3rd details element -->
+					<details class="details details--03" name="faq-accordion">
+						<summary class="summary details__summary">Loading Data into Database</summary>
+						<p class="p details__text">The downloaded CSV files are then loaded into their respective tables in the database.</p>
+						<p class="p details__text">The following are the steps for Postgres database:</p>
+						<pre class="pre">
+							<code class="code">
+								1. Open pgAdmin.
+								2. Drop the Database if it already exists
+									DROP DATABASE IF EXISTS datanerd_jobs;
+								3. Repeat steps to create database and load table schemas
+									- 1_create_database.sql
+									- 2_create_tables.sql
+								4. In Object Explorer (left-hand pane), navigate to `datanerd_jobs` database.
+								5. Right-click `datanerd_jobs` and select `PSQL Tool`
+									- This opens a terminal window to write the following code
+								6. Get the absolute file path of your csv files
+									- Find path by right-clicking a CSV file in VS Code and selecting “Copy Path”
+								7. Paste the following into `PSQL Tool`, (with the CORRECT file path)
+
+									COPY company_dim FROM '[Insert File Path]/company_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+
+									COPY skills_dim FROM '[Insert File Path]/skills_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+
+									COPY job_postings_fact FROM '[Insert File Path]/job_postings_fact.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+
+									COPY skills_job_dim FROM '[Insert File Path]/skills_job_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+
+								8. Wait a while for each table to load (several minutes for the large CSV files)
+								9. Run the following code to check that the data has been loaded
+								  - SELECT * FROM job_postings_fact LIMIT 100;
+							</code>
+						</pre>
+						<p class="p details__text">The following are the steps for SQLite database:</p>
+						<pre class="pre">
+							<code class="code">
+								1. Open the database with sqlite shell, SQLite browser or programming language of your choice.
+								2. Copy the codes from the sql file named `3_load_csv_data_into_sqlite_tables.sql`.
+							</code>
+						</pre>
+					</details>
+					<!-- 4th details element -->
+					<details class="details details--04" name="faq-accordion">
+						<summary class="summary details__summary">Entity Relationship Diagram</summary>
+						<p class="p details__text">The above tables are related as shown in the diagram below.</p>
+						<figure class="figure details__figure">
+							<img src="./images/datanerd-jobs-ERD.svg" alt="Entity Relationship Diagram" class="img figure__img details__img">
+							<figcaption class="figure__caption">Entity Relationship Diagram</figcaption>
+						</figure>
+					</details>
+				</section>
 			</div>
 
 			<!-- 2nd Group of Tabs and Contents -->
 			<input type="radio" name="tabs" id="tab_02" class="input-radio tabs__radio">
-			<label for="tab_02" class="label input-label tabs__label">Tab 02</label>
+			<label for="tab_02" class="label input-label tabs__label">Top Data Jobs</label>
 			<div class="tab tabs__tab tab02__content">
-				<h2 class="h2 tab__heading tab02__heading">Tab 02 Content</h2>
+				<h2 class="h2 tab__heading tab02__heading">What are the top-paying data analyst, data scientist and data engineer jobs?</h2>
 				<p class="p tab__text tab02__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
-				<p class="p tab__text tab02__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+				<section id="accordion" class="section accordion">
+					<!-- 1st details element -->
+					<details class="details details--01" name="faq-accordion">
+						<summary class="summary details__summary">Data Analyst</summary>
+						<p class="p details__text" hidden>???</p>
+						<!-- Start Responsive Table -->
+						<table class="rsp-table">
+							<caption class="rsp-table-caption"></caption>
+							<!-- Table Head -->
+							<thead class="rsp-thead">
+								<tr class="tr rsp-thead__tr">
+									<!-- IMPORTANT: Number of `th` must correspond to number of `td` -->
+									<!-- IMPORTANT: Value of `th` must correspond to data-label of `td` below -->
+									<th class="th rsp-thead__th rsp-thead__th-000"></th>
+									<th class="th rsp-thead__th rsp-thead__th-001">job_id</th>
+									<th class="th rsp-thead__th rsp-thead__th-002">job_title</th>
+									<th class="th rsp-thead__th rsp-thead__th-003">job_location</th>
+									<th class="th rsp-thead__th rsp-thead__th-004">job_schedule_type</th>
+									<th class="th rsp-thead__th rsp-thead__th-005">salary_year_avg</th>
+									<th class="th rsp-thead__th rsp-thead__th-006">job_posted_date</th>
+									<th class="th rsp-thead__th rsp-thead__th-007">company_name</th>
+								</tr>
+							</thead>
+
+							<!-- Table Body -->
+							<tbody class="rsp-tbody">
+								<!-- 1st row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-01">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">226942</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Data Analyst</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">650000.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-02-20 15:13:33</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="company_name">Mantys</td>
+								</tr>
+								<!-- 2nd row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-02">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">1</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">547382</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Director of Analytics</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">336500.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-08-23 12:04:42</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="company_name">Meta</td>
+								</tr>
+								<!-- 3rd row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-03">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">2</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">552322</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Associate Director- Data Insights</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">255829.5</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-06-18 16:03:12</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="company_name">AT&amp;T</td>
+								</tr>
+								<!-- 4th row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-04">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">3</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">99305</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Data Analyst, Marketing</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">232423.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-12-05 20:00:40</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="company_name">Pinterest Job Advertisements</td>
+								</tr>
+								<!-- 5th row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-05">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">4</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">1021647</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Data Analyst (Hybrid/Remote)</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">217000.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-01-17 00:17:23</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="company_name">Uclahealthcareers</td>
+								</tr>
+							</tbody>
+
+							<!-- Table Footer -->
+							<tfoot class="rsp-tfoot">
+								<tr class="tr rsp-tfoot__tr"></tr>
+							</tfoot>
+						</table>
+						<!-- End responsive table -->
+						<blockquote>
+							<details>
+								<summary>SQL Query</summary>
+								<pre>
+									SELECT
+										job_id,
+										job_title,
+										job_location,
+										job_schedule_type,
+										salary_year_avg,
+										job_posted_date,
+										name AS company_name
+									FROM
+										job_postings_fact
+										LEFT JOIN
+										company_dim
+										ON
+										job_postings_fact.company_id = company_dim.company_id
+									WHERE
+										job_title_short = 'Data Analyst' AND job_location = 'Anywhere' AND salary_year_avg IS NOT NULL
+									ORDER BY
+										salary_year_avg DESC
+									LIMIT 10
+									;
+								</pre>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 2nd details element -->
+					<details class="details details--02" name="faq-accordion">
+						<summary class="summary details__summary">Data Scientist</summary>
+						<p class="p details__text">???</p>
+						<blockquote>
+							<details>
+								<summary>SQL Query</summary>
+								<pre>
+								</pre>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 3rd details element -->
+					<details class="details details--03" name="faq-accordion">
+						<summary class="summary details__summary">Data Engineer</summary>
+						<p class="p details__text">???</p>
+						<blockquote>
+							<details>
+								<summary>SQL Query</summary>
+								<pre>
+								</pre>
+							</details>
+						</blockquote>
+					</details>
+				</section>
+			</div>
+
+			<!-- 3rd Group of Tabs and Contents -->
+			<input type="radio" name="tabs" id="tab_03" class="input-radio tabs__radio">
+			<label for="tab_03" class="label input-label tabs__label">Tab 03</label>
+			<div class="tab tabs__tab tab03__content">
+				<h2 class="h2 tab__heading tab03__heading">Tab 03 Content</h2>
+				<p class="p tab__text tab03__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
+				<p class="p tab__text tab03__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+			</div>
+
+			<!-- 4th Group of Tabs and Contents -->
+			<input type="radio" name="tabs" id="tab_04" class="input-radio tabs__radio">
+			<label for="tab_04" class="label input-label tabs__label">Tab 04</label>
+			<div class="tab tabs__tab tab04__content">
+				<h2 class="h2 tab__heading tab04__heading">Tab 04 Content</h2>
+				<p class="p tab__text tab04__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
+				<p class="p tab__text tab04__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+			</div>
+
+			<!-- 5th Group of Tabs and Contents -->
+			<input type="radio" name="tabs" id="tab_05" class="input-radio tabs__radio">
+			<label for="tab_05" class="label input-label tabs__label">Tab 05</label>
+			<div class="tab tabs__tab tab05__content">
+				<h2 class="h2 tab__heading tab05__heading">Tab 05 Content</h2>
+				<p class="p tab__text tab05__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
+				<p class="p tab__text tab05__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+			</div>
+
+			<!-- 6th Group of Tabs and Contents -->
+			<input type="radio" name="tabs" id="tab_06" class="input-radio tabs__radio">
+			<label for="tab_06" class="label input-label tabs__label">Tab 06</label>
+			<div class="tab tabs__tab tab06__content">
+				<h2 class="h2 tab__heading tab06__heading">Tab 06 Content</h2>
+				<p class="p tab__text tab06__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
+				<p class="p tab__text tab06__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+			</div>
+
+			<!-- 7th Group of Tabs and Contents -->
+			<input type="radio" name="tabs" id="tab_07" class="input-radio tabs__radio">
+			<label for="tab_07" class="label input-label tabs__label">Tab 07</label>
+			<div class="tab tabs__tab tab07__content">
+				<h2 class="h2 tab__heading tab07__heading">Tab 07 Content</h2>
+				<p class="p tab__text tab07__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
+				<p class="p tab__text tab07__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+			</div>
+
+			<!-- 8th Group of Tabs and Contents -->
+			<input type="radio" name="tabs" id="tab_08" class="input-radio tabs__radio">
+			<label for="tab_08" class="label input-label tabs__label">Tab 08</label>
+			<div class="tab tabs__tab tab08__content">
+				<h2 class="h2 tab__heading tab08__heading">Tab 08 Content</h2>
+				<p class="p tab__text tab08__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
+				<p class="p tab__text tab08__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+			</div>
+
+			<!-- 9th Group of Tabs and Contents -->
+			<input type="radio" name="tabs" id="tab_09" class="input-radio tabs__radio">
+			<label for="tab_09" class="label input-label tabs__label">Tab 09</label>
+			<div class="tab tabs__tab tab09__content">
+				<h2 class="h2 tab__heading tab09__heading">Tab 09 Content</h2>
+				<p class="p tab__text tab09__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
+				<p class="p tab__text tab09__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+			</div>
+
+			<!-- 10th Group of Tabs and Contents -->
+			<input type="radio" name="tabs" id="tab_10" class="input-radio tabs__radio">
+			<label for="tab_10" class="label input-label tabs__label">Tab 10</label>
+			<div class="tab tabs__tab tab10__content">
+				<h2 class="h2 tab__heading tab10__heading">Tab 10 Content</h2>
+				<p class="p tab__text tab10__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
+				<p class="p tab__text tab10__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
 			</div>
 		</section>
 	</main>
