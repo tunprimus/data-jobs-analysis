@@ -65,7 +65,7 @@
 		<section class="section tabs tabs-wrapper">
 			<!-- 1st Group of Tabs and Contents -->
 			<input type="radio" name="tabs" id="tab_01" class="input-radio tabs__radio">
-			<label for="tab_01" class="label input-label tabs__label">Goals</label>
+			<label for="tab_01" class="label input-label tabs__label">Project Goals</label>
 			<div class="tab tabs__tab tab01__content">
 				<h2 class="h2 tab__heading tab01__heading">About The Project</h2>
 				<p class="p tab__text tab01__text">As an aspiring data nerd looking to analyse top-paying roles and skill by using SQL queries to explore a large dataset about role(s) of interest.</p>
@@ -83,8 +83,8 @@
 				</ol>
 				<section id="accordion" class="section accordion">
 					<!-- 1st details element -->
-					<details class="details details--01" name="faq-accordion">
-						<summary class="summary details__summary">Data Sourcing</summary>
+					<details class="accordion-details details--01" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Sourcing</summary>
 						<p class="p details__text">The required CSV files are available for download from the following sqliteviz link: <a href="https://lukeb.co/sql_jobs_db" target="_blank">https://lukeb.co/sql_jobs_db</a>.</p>
 						<p class="p details__text">The following are the relevant steps.</p>
 						<p class="p details__text">
@@ -95,8 +95,8 @@
 						<p class="p details__text">N.B.: UPDATE - A more streamlined and combined CSV can be obtained from Hugging Face dataset at:  <a href="https://huggingface.co/datasets/lukebarousse/data_jobs" target="_blank">https://huggingface.co/datasets/lukebarousse/data_jobs</a>. However, it will not enable the creation of the tables indicated with the scripts and codes listed in this project.</p>
 					</details>
 					<!-- 2nd details element -->
-					<details class="details details--02" name="faq-accordion">
-						<summary class="summary details__summary">Database Tables Creation</summary>
+					<details class="accordion-details details--02" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Database Tables Creation</summary>
 						<p class="p details__text">Postgres database was the main focus of this project. However, SQLite was also used to improve the versatility of the queries used.</p>
 						<p class="p details__text">The following are the steps for Postgres database:</p>
 						<pre class="pre">
@@ -117,8 +117,8 @@
 						</pre>
 					</details>
 					<!-- 3rd details element -->
-					<details class="details details--03" name="faq-accordion">
-						<summary class="summary details__summary">Loading Data into Database</summary>
+					<details class="accordion-details details--03" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Loading Data into Database</summary>
 						<p class="p details__text">The downloaded CSV files are then loaded into their respective tables in the database.</p>
 						<p class="p details__text">The following are the steps for Postgres database:</p>
 						<pre class="pre">
@@ -158,8 +158,8 @@
 						</pre>
 					</details>
 					<!-- 4th details element -->
-					<details class="details details--04" name="faq-accordion">
-						<summary class="summary details__summary">Entity Relationship Diagram</summary>
+					<details class="accordion-details details--04" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Entity Relationship Diagram</summary>
 						<p class="p details__text">The above tables are related as shown in the diagram below.</p>
 						<figure class="figure details__figure">
 							<img src="./images/datanerd-jobs-ERD.svg" alt="Entity Relationship Diagram" class="img figure__img details__img">
@@ -174,11 +174,11 @@
 			<label for="tab_02" class="label input-label tabs__label">Top Data Jobs</label>
 			<div class="tab tabs__tab tab02__content">
 				<h2 class="h2 tab__heading tab02__heading">What are the top-paying data analyst, data scientist and data engineer jobs?</h2>
-				<p class="p tab__text tab02__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
+				<p class="p tab__text tab02__text" hidden>???</p>
 				<section id="accordion" class="section accordion">
 					<!-- 1st details element -->
-					<details class="details details--01" name="faq-accordion">
-						<summary class="summary details__summary">Data Analyst</summary>
+					<details class="details accordion-details details--01" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Analyst</summary>
 						<p class="p details__text" hidden>???</p>
 						<!-- Start Responsive Table -->
 						<table class="rsp-table">
@@ -198,7 +198,6 @@
 									<th class="th rsp-thead__th rsp-thead__th-007">company_name</th>
 								</tr>
 							</thead>
-
 							<!-- Table Body -->
 							<tbody class="rsp-tbody">
 								<!-- 1st row -->
@@ -257,7 +256,6 @@
 									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="company_name">Uclahealthcareers</td>
 								</tr>
 							</tbody>
-
 							<!-- Table Footer -->
 							<tfoot class="rsp-tfoot">
 								<tr class="tr rsp-tfoot__tr"></tr>
@@ -265,9 +263,9 @@
 						</table>
 						<!-- End responsive table -->
 						<blockquote>
-							<details>
-								<summary>SQL Query</summary>
-								<pre>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
 									SELECT
 										job_id,
 										job_title,
@@ -288,31 +286,253 @@
 										salary_year_avg DESC
 									LIMIT 10
 									;
-								</pre>
+								</code>
 							</details>
 						</blockquote>
 					</details>
 					<!-- 2nd details element -->
-					<details class="details details--02" name="faq-accordion">
-						<summary class="summary details__summary">Data Scientist</summary>
-						<p class="p details__text">???</p>
+					<details class="accordion-details details--02" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Scientist</summary>
+						<p class="p details__text" hidden>???</p>
+						<!-- Start Responsive Table -->
+						<table class="rsp-table">
+							<caption class="rsp-table-caption"></caption>
+							<!-- Table Head -->
+							<thead class="rsp-thead">
+								<tr class="tr rsp-thead__tr">
+									<th class="th rsp-thead__th rsp-thead__th-000"></th>
+									<th class="th rsp-thead__th rsp-thead__th-001">job_id</th>
+									<th class="th rsp-thead__th rsp-thead__th-002">job_title</th>
+									<th class="th rsp-thead__th rsp-thead__th-003">job_location</th>
+									<th class="th rsp-thead__th rsp-thead__th-004">job_schedule_type</th>
+									<th class="th rsp-thead__th rsp-thead__th-005">salary_year_avg</th>
+									<th class="th rsp-thead__th rsp-thead__th-006">job_posted_date</th>
+									<th class="th rsp-thead__th rsp-thead__th-007">company_name</th>
+								</tr>
+							</thead>
+							<!-- Table Body -->
+							<tbody class="rsp-tbody">
+								<!-- 1st row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-01">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">40145</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Staff Data Scientist/Quant Researcher</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">550000.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-08-16 16:05:16</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">Selby Jennings</td>
+								</tr>
+								<!-- 2nd row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-02">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">1</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">1714768</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Staff Data Scientist - Business Analytics</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">525000.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-09-01 19:24:02</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">Selby Jennings</td>
+								</tr>
+								<!-- 3rd row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-03">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">2</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">1131472</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Data Scientist</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">375000.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-07-31 14:05:21</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">Algo Capital Group</td>
+								</tr>
+								<!-- 4th row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-04">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">3</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">1742633</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Head of Data Science</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">351500.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-07-12 03:07:31</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">Demandbase</td>
+								</tr>
+								<!-- 5th row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-05">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">4</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">551497</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Head of Data Science</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">324000.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-05-26 22:04:44</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">Demandbase</td>
+								</tr>
+								<!-- Buffer row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-06" hidden>
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">4</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">TODO</td>
+								</tr>
+							</tbody>
+							<!-- Table Footer -->
+							<tfoot class="rsp-tfoot">
+								<tr class="tr rsp-tfoot__tr"></tr>
+							</tfoot>
+						</table>
+						<!-- End responsive table -->
 						<blockquote>
-							<details>
-								<summary>SQL Query</summary>
-								<pre>
-								</pre>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									SELECT
+										job_id,
+										job_title,
+										job_location,
+										job_schedule_type,
+										salary_year_avg,
+										job_posted_date,
+										name AS company_name
+									FROM
+										job_postings_fact
+										LEFT JOIN
+										company_dim
+										ON
+										job_postings_fact.company_id = company_dim.company_id
+									WHERE
+										job_title_short = 'Data Scientist' AND job_location = 'Anywhere' AND salary_year_avg IS NOT NULL
+									ORDER BY
+										salary_year_avg DESC
+									LIMIT 10
+									;
+								</code>
 							</details>
 						</blockquote>
 					</details>
 					<!-- 3rd details element -->
-					<details class="details details--03" name="faq-accordion">
-						<summary class="summary details__summary">Data Engineer</summary>
-						<p class="p details__text">???</p>
+					<details class="accordion-details details--03" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Engineer</summary>
+						<p class="p details__text" hidden>???</p>
+						<!-- Start Responsive Table -->
+						<table class="rsp-table">
+							<caption class="rsp-table-caption"></caption>
+							<!-- Table Head -->
+							<thead class="rsp-thead">
+								<tr class="tr rsp-thead__tr">
+									<th class="th rsp-thead__th rsp-thead__th-000"></th>
+									<th class="th rsp-thead__th rsp-thead__th-001">job_id</th>
+									<th class="th rsp-thead__th rsp-thead__th-002">job_title</th>
+									<th class="th rsp-thead__th rsp-thead__th-003">job_location</th>
+									<th class="th rsp-thead__th rsp-thead__th-004">job_schedule_type</th>
+									<th class="th rsp-thead__th rsp-thead__th-005">salary_year_avg</th>
+									<th class="th rsp-thead__th rsp-thead__th-006">job_posted_date</th>
+									<th class="th rsp-thead__th rsp-thead__th-007">company_name</th>
+								</tr>
+							</thead>
+							<!-- Table Body -->
+							<tbody class="rsp-tbody">
+								<!-- 1st row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-01">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">157003</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Data Engineer</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">325000.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-02-17 18:11:49</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">Engtal</td>
+								</tr>
+								<!-- 2nd row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-02">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">1</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">21321</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Data Engineer</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">325000.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-01-27 18:10:51</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">Engtal</td>
+								</tr>
+								<!-- 3rd row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-03">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">2</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">270455</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Data Engineer</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">300000.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-07-17 11:10:55</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">Durlston Partners</td>
+								</tr>
+								<!-- 4th row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-04">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">3</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">230458</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Director of Engineering - Data Platform</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">251000.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-01-30 11:07:32</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">Twitch</td>
+								</tr>
+								<!-- 5th row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-05">
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">4</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">561728</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">Data Engineer</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">Anywhere</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">Full-time</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">250000.0</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">2023-03-24 23:32:42</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">AI Startup</td>
+								</tr>
+								<!-- Buffer row -->
+								<tr class="tr rsp-tbody__tr rsp-tbody__tr-06" hidden>
+									<td class="td rsp-tbody__td rsp-tbody__td-000" data-label="">4</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-001" data-label="job_id">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-002" data-label="job_title">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-003" data-label="job_location">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-004" data-label="job_schedule_type">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-005" data-label="salary_year_avg">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-006" data-label="job_posted_date">TODO</td>
+									<td class="td rsp-tbody__td rsp-tbody__td-007" data-label="company_name">TODO</td>
+								</tr>
+							</tbody>
+							<!-- Table Footer -->
+							<tfoot class="rsp-tfoot">
+								<tr class="tr rsp-tfoot__tr"></tr>
+							</tfoot>
+						</table>
+						<!-- End responsive table -->
 						<blockquote>
-							<details>
-								<summary>SQL Query</summary>
-								<pre>
-								</pre>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									SELECT
+										job_id,
+										job_title,
+										job_location,
+										job_schedule_type,
+										salary_year_avg,
+										job_posted_date,
+										name AS company_name
+									FROM
+										job_postings_fact
+										LEFT JOIN
+										company_dim
+										ON
+										job_postings_fact.company_id = company_dim.company_id
+									WHERE
+										job_title_short = 'Data Engineer' AND job_location = 'Anywhere' AND salary_year_avg IS NOT NULL
+									ORDER BY
+										salary_year_avg DESC
+									LIMIT 10
+									;
+								</code>
 							</details>
 						</blockquote>
 					</details>
@@ -321,38 +541,2360 @@
 
 			<!-- 3rd Group of Tabs and Contents -->
 			<input type="radio" name="tabs" id="tab_03" class="input-radio tabs__radio">
-			<label for="tab_03" class="label input-label tabs__label">Tab 03</label>
+			<label for="tab_03" class="label input-label tabs__label">Top Data Skills</label>
 			<div class="tab tabs__tab tab03__content">
-				<h2 class="h2 tab__heading tab03__heading">Tab 03 Content</h2>
-				<p class="p tab__text tab03__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
-				<p class="p tab__text tab03__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+				<h2 class="h2 tab__heading tab03__heading">What skills are required for the top-paying data analyst, data scientist and data engineer jobs?</h2>
+				<p class="p tab__text tab03__text" hidden>???</p>
+				<!-- Start exclusive details group -->
+				<section id="accordion" class="section accordion">
+					<!-- 1st details element -->
+					<details class="accordion-details details--01" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Analyst</summary>
+						<p class="p details__text" hidden>???</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>job_id</th>
+						      <th>job_title</th>
+						      <th>salary_year_avg</th>
+						      <th>company_name</th>
+						      <th>skills</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>552322</td>
+						      <td>Associate Director- Data Insights</td>
+						      <td>255829.5</td>
+						      <td>AT&amp;T</td>
+						      <td>sql</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>552322</td>
+						      <td>Associate Director- Data Insights</td>
+						      <td>255829.5</td>
+						      <td>AT&amp;T</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>552322</td>
+						      <td>Associate Director- Data Insights</td>
+						      <td>255829.5</td>
+						      <td>AT&amp;T</td>
+						      <td>r</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>552322</td>
+						      <td>Associate Director- Data Insights</td>
+						      <td>255829.5</td>
+						      <td>AT&amp;T</td>
+						      <td>azure</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>552322</td>
+						      <td>Associate Director- Data Insights</td>
+						      <td>255829.5</td>
+						      <td>AT&amp;T</td>
+						      <td>aws</td>
+						    </tr>
+						    <tr>
+						      <th>...</th>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						    </tr>
+						    <tr>
+						      <th>61</th>
+						      <td>1749593</td>
+						      <td>Principal Data Analyst</td>
+						      <td>186000.0</td>
+						      <td>SmartAsset</td>
+						      <td>tableau</td>
+						    </tr>
+						    <tr>
+						      <th>62</th>
+						      <td>1749593</td>
+						      <td>Principal Data Analyst</td>
+						      <td>186000.0</td>
+						      <td>SmartAsset</td>
+						      <td>gitlab</td>
+						    </tr>
+						    <tr>
+						      <th>63</th>
+						      <td>387860</td>
+						      <td>ERM Data Analyst</td>
+						      <td>184000.0</td>
+						      <td>Get It Recruit - Information Technology</td>
+						      <td>sql</td>
+						    </tr>
+						    <tr>
+						      <th>64</th>
+						      <td>387860</td>
+						      <td>ERM Data Analyst</td>
+						      <td>184000.0</td>
+						      <td>Get It Recruit - Information Technology</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>65</th>
+						      <td>387860</td>
+						      <td>ERM Data Analyst</td>
+						      <td>184000.0</td>
+						      <td>Get It Recruit - Information Technology</td>
+						      <td>r</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									WITH top_paying_jobs AS (
+									    SELECT
+									        job_id,
+									        job_title,
+									        salary_year_avg,
+									        name AS company_name
+									    FROM
+									        job_postings_fact
+									        LEFT JOIN
+									        company_dim
+									        ON
+									        job_postings_fact.company_id = company_dim.company_id
+									    WHERE
+									        job_title_short = 'Data Analyst' AND job_location = 'Anywhere' AND salary_year_avg IS NOT NULL
+									    ORDER BY
+									        salary_year_avg DESC
+									    LIMIT 10
+									)
+
+									SELECT
+									    top_paying_jobs.*,
+									    skills
+									FROM
+									    top_paying_jobs
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    top_paying_jobs.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									ORDER BY
+									    salary_year_avg DESC
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 2nd details element -->
+					<details class="accordion-details details--02" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Scientist</summary>
+						<p class="p details__text" hidden>???</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>job_id</th>
+						      <th>job_title</th>
+						      <th>salary_year_avg</th>
+						      <th>company_name</th>
+						      <th>skills</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>40145</td>
+						      <td>Staff Data Scientist/Quant Researcher</td>
+						      <td>550000.0</td>
+						      <td>Selby Jennings</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>40145</td>
+						      <td>Staff Data Scientist/Quant Researcher</td>
+						      <td>550000.0</td>
+						      <td>Selby Jennings</td>
+						      <td>sql</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>1714768</td>
+						      <td>Staff Data Scientist - Business Analytics</td>
+						      <td>525000.0</td>
+						      <td>Selby Jennings</td>
+						      <td>sql</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>1131472</td>
+						      <td>Data Scientist</td>
+						      <td>375000.0</td>
+						      <td>Algo Capital Group</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>1131472</td>
+						      <td>Data Scientist</td>
+						      <td>375000.0</td>
+						      <td>Algo Capital Group</td>
+						      <td>java</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>1131472</td>
+						      <td>Data Scientist</td>
+						      <td>375000.0</td>
+						      <td>Algo Capital Group</td>
+						      <td>sql</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>1131472</td>
+						      <td>Data Scientist</td>
+						      <td>375000.0</td>
+						      <td>Algo Capital Group</td>
+						      <td>cassandra</td>
+						    </tr>
+						    <tr>
+						      <th>7</th>
+						      <td>1131472</td>
+						      <td>Data Scientist</td>
+						      <td>375000.0</td>
+						      <td>Algo Capital Group</td>
+						      <td>hadoop</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>1131472</td>
+						      <td>Data Scientist</td>
+						      <td>375000.0</td>
+						      <td>Algo Capital Group</td>
+						      <td>spark</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>1131472</td>
+						      <td>Data Scientist</td>
+						      <td>375000.0</td>
+						      <td>Algo Capital Group</td>
+						      <td>tableau</td>
+						    </tr>
+						    <tr>
+						      <th>10</th>
+						      <td>126218</td>
+						      <td>Director Level - Product Management - Data Sci...</td>
+						      <td>320000.0</td>
+						      <td>Teramind</td>
+						      <td>aws</td>
+						    </tr>
+						    <tr>
+						      <th>11</th>
+						      <td>126218</td>
+						      <td>Director Level - Product Management - Data Sci...</td>
+						      <td>320000.0</td>
+						      <td>Teramind</td>
+						      <td>azure</td>
+						    </tr>
+						    <tr>
+						      <th>12</th>
+						      <td>126218</td>
+						      <td>Director Level - Product Management - Data Sci...</td>
+						      <td>320000.0</td>
+						      <td>Teramind</td>
+						      <td>tensorflow</td>
+						    </tr>
+						    <tr>
+						      <th>13</th>
+						      <td>126218</td>
+						      <td>Director Level - Product Management - Data Sci...</td>
+						      <td>320000.0</td>
+						      <td>Teramind</td>
+						      <td>keras</td>
+						    </tr>
+						    <tr>
+						      <th>14</th>
+						      <td>126218</td>
+						      <td>Director Level - Product Management - Data Sci...</td>
+						      <td>320000.0</td>
+						      <td>Teramind</td>
+						      <td>pytorch</td>
+						    </tr>
+						    <tr>
+						      <th>15</th>
+						      <td>126218</td>
+						      <td>Director Level - Product Management - Data Sci...</td>
+						      <td>320000.0</td>
+						      <td>Teramind</td>
+						      <td>scikit-learn</td>
+						    </tr>
+						    <tr>
+						      <th>16</th>
+						      <td>126218</td>
+						      <td>Director Level - Product Management - Data Sci...</td>
+						      <td>320000.0</td>
+						      <td>Teramind</td>
+						      <td>datarobot</td>
+						    </tr>
+						    <tr>
+						      <th>17</th>
+						      <td>457991</td>
+						      <td>Head of Battery Data Science</td>
+						      <td>300000.0</td>
+						      <td>Lawrence Harvey</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>18</th>
+						      <td>457991</td>
+						      <td>Head of Battery Data Science</td>
+						      <td>300000.0</td>
+						      <td>Lawrence Harvey</td>
+						      <td>aws</td>
+						    </tr>
+						    <tr>
+						      <th>19</th>
+						      <td>457991</td>
+						      <td>Head of Battery Data Science</td>
+						      <td>300000.0</td>
+						      <td>Lawrence Harvey</td>
+						      <td>gcp</td>
+						    </tr>
+						    <tr>
+						      <th>20</th>
+						      <td>226011</td>
+						      <td>Distinguished Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Walmart</td>
+						      <td>java</td>
+						    </tr>
+						    <tr>
+						      <th>21</th>
+						      <td>226011</td>
+						      <td>Distinguished Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Walmart</td>
+						      <td>scala</td>
+						    </tr>
+						    <tr>
+						      <th>22</th>
+						      <td>226011</td>
+						      <td>Distinguished Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Walmart</td>
+						      <td>tensorflow</td>
+						    </tr>
+						    <tr>
+						      <th>23</th>
+						      <td>226011</td>
+						      <td>Distinguished Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Walmart</td>
+						      <td>pytorch</td>
+						    </tr>
+						    <tr>
+						      <th>24</th>
+						      <td>226011</td>
+						      <td>Distinguished Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Walmart</td>
+						      <td>spark</td>
+						    </tr>
+						    <tr>
+						      <th>25</th>
+						      <td>226011</td>
+						      <td>Distinguished Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Walmart</td>
+						      <td>kubernetes</td>
+						    </tr>
+						    <tr>
+						      <th>26</th>
+						      <td>38905</td>
+						      <td>Principal Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Storm5</td>
+						      <td>c</td>
+						    </tr>
+						    <tr>
+						      <th>27</th>
+						      <td>38905</td>
+						      <td>Principal Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Storm5</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>28</th>
+						      <td>38905</td>
+						      <td>Principal Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Storm5</td>
+						      <td>java</td>
+						    </tr>
+						    <tr>
+						      <th>29</th>
+						      <td>38905</td>
+						      <td>Principal Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Storm5</td>
+						      <td>sql</td>
+						    </tr>
+						    <tr>
+						      <th>30</th>
+						      <td>38905</td>
+						      <td>Principal Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Storm5</td>
+						      <td>aws</td>
+						    </tr>
+						    <tr>
+						      <th>31</th>
+						      <td>38905</td>
+						      <td>Principal Data Scientist</td>
+						      <td>300000.0</td>
+						      <td>Storm5</td>
+						      <td>gcp</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									WITH top_paying_jobs AS (
+									    SELECT
+									        job_id,
+									        job_title,
+									        salary_year_avg,
+									        name AS company_name
+									    FROM
+									        job_postings_fact
+									        LEFT JOIN
+									        company_dim
+									        ON
+									        job_postings_fact.company_id = company_dim.company_id
+									    WHERE
+									        job_title_short = 'Data Scientist' AND job_location = 'Anywhere' AND salary_year_avg IS NOT NULL
+									    ORDER BY
+									        salary_year_avg DESC
+									    LIMIT 10
+									)
+
+									SELECT
+									    top_paying_jobs.*,
+									    skills
+									FROM
+									    top_paying_jobs
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    top_paying_jobs.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									ORDER BY
+									    salary_year_avg DESC
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 3rd details element -->
+					<details class="accordion-details details--03" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Engineer</summary>
+						<p class="p details__text" hidden>???</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>job_id</th>
+						      <th>job_title</th>
+						      <th>salary_year_avg</th>
+						      <th>company_name</th>
+						      <th>skills</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>21321</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>21321</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>pandas</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>21321</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>numpy</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>21321</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>pyspark</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>21321</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>hadoop</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>21321</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>spark</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>21321</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>kafka</td>
+						    </tr>
+						    <tr>
+						      <th>7</th>
+						      <td>21321</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>kubernetes</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>157003</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>157003</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>pandas</td>
+						    </tr>
+						    <tr>
+						      <th>10</th>
+						      <td>157003</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>numpy</td>
+						    </tr>
+						    <tr>
+						      <th>11</th>
+						      <td>157003</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>pyspark</td>
+						    </tr>
+						    <tr>
+						      <th>12</th>
+						      <td>157003</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>hadoop</td>
+						    </tr>
+						    <tr>
+						      <th>13</th>
+						      <td>157003</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>spark</td>
+						    </tr>
+						    <tr>
+						      <th>14</th>
+						      <td>157003</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>kafka</td>
+						    </tr>
+						    <tr>
+						      <th>15</th>
+						      <td>157003</td>
+						      <td>Data Engineer</td>
+						      <td>325000.0</td>
+						      <td>Engtal</td>
+						      <td>kubernetes</td>
+						    </tr>
+						    <tr>
+						      <th>16</th>
+						      <td>270455</td>
+						      <td>Data Engineer</td>
+						      <td>300000.0</td>
+						      <td>Durlston Partners</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>17</th>
+						      <td>270455</td>
+						      <td>Data Engineer</td>
+						      <td>300000.0</td>
+						      <td>Durlston Partners</td>
+						      <td>sql</td>
+						    </tr>
+						    <tr>
+						      <th>18</th>
+						      <td>230458</td>
+						      <td>Director of Engineering - Data Platform</td>
+						      <td>251000.0</td>
+						      <td>Twitch</td>
+						      <td>spark</td>
+						    </tr>
+						    <tr>
+						      <th>19</th>
+						      <td>230458</td>
+						      <td>Director of Engineering - Data Platform</td>
+						      <td>251000.0</td>
+						      <td>Twitch</td>
+						      <td>hadoop</td>
+						    </tr>
+						    <tr>
+						      <th>20</th>
+						      <td>230458</td>
+						      <td>Director of Engineering - Data Platform</td>
+						      <td>251000.0</td>
+						      <td>Twitch</td>
+						      <td>kafka</td>
+						    </tr>
+						    <tr>
+						      <th>21</th>
+						      <td>230458</td>
+						      <td>Director of Engineering - Data Platform</td>
+						      <td>251000.0</td>
+						      <td>Twitch</td>
+						      <td>tensorflow</td>
+						    </tr>
+						    <tr>
+						      <th>22</th>
+						      <td>230458</td>
+						      <td>Director of Engineering - Data Platform</td>
+						      <td>251000.0</td>
+						      <td>Twitch</td>
+						      <td>pytorch</td>
+						    </tr>
+						    <tr>
+						      <th>23</th>
+						      <td>230458</td>
+						      <td>Director of Engineering - Data Platform</td>
+						      <td>251000.0</td>
+						      <td>Twitch</td>
+						      <td>keras</td>
+						    </tr>
+						    <tr>
+						      <th>24</th>
+						      <td>561728</td>
+						      <td>Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>AI Startup</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>25</th>
+						      <td>561728</td>
+						      <td>Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>AI Startup</td>
+						      <td>r</td>
+						    </tr>
+						    <tr>
+						      <th>26</th>
+						      <td>561728</td>
+						      <td>Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>AI Startup</td>
+						      <td>scala</td>
+						    </tr>
+						    <tr>
+						      <th>27</th>
+						      <td>561728</td>
+						      <td>Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>AI Startup</td>
+						      <td>azure</td>
+						    </tr>
+						    <tr>
+						      <th>28</th>
+						      <td>595768</td>
+						      <td>Principal Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>Signify Technology</td>
+						      <td>scala</td>
+						    </tr>
+						    <tr>
+						      <th>29</th>
+						      <td>595768</td>
+						      <td>Principal Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>Signify Technology</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>30</th>
+						      <td>595768</td>
+						      <td>Principal Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>Signify Technology</td>
+						      <td>databricks</td>
+						    </tr>
+						    <tr>
+						      <th>31</th>
+						      <td>595768</td>
+						      <td>Principal Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>Signify Technology</td>
+						      <td>spark</td>
+						    </tr>
+						    <tr>
+						      <th>32</th>
+						      <td>543728</td>
+						      <td>Staff Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>Signify Technology</td>
+						      <td>scala</td>
+						    </tr>
+						    <tr>
+						      <th>33</th>
+						      <td>543728</td>
+						      <td>Staff Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>Signify Technology</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>34</th>
+						      <td>543728</td>
+						      <td>Staff Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>Signify Technology</td>
+						      <td>databricks</td>
+						    </tr>
+						    <tr>
+						      <th>35</th>
+						      <td>543728</td>
+						      <td>Staff Data Engineer</td>
+						      <td>250000.0</td>
+						      <td>Signify Technology</td>
+						      <td>spark</td>
+						    </tr>
+						    <tr>
+						      <th>36</th>
+						      <td>204320</td>
+						      <td>Staff Data Engineer</td>
+						      <td>245000.0</td>
+						      <td>Handshake</td>
+						      <td>go</td>
+						    </tr>
+						    <tr>
+						      <th>37</th>
+						      <td>151972</td>
+						      <td>Principal Data Engineer (Remote)</td>
+						      <td>245000.0</td>
+						      <td>Movable Ink</td>
+						      <td>nosql</td>
+						    </tr>
+						    <tr>
+						      <th>38</th>
+						      <td>151972</td>
+						      <td>Principal Data Engineer (Remote)</td>
+						      <td>245000.0</td>
+						      <td>Movable Ink</td>
+						      <td>aws</td>
+						    </tr>
+						    <tr>
+						      <th>39</th>
+						      <td>151972</td>
+						      <td>Principal Data Engineer (Remote)</td>
+						      <td>245000.0</td>
+						      <td>Movable Ink</td>
+						      <td>gcp</td>
+						    </tr>
+						    <tr>
+						      <th>40</th>
+						      <td>609418</td>
+						      <td>Data Engineering Manager</td>
+						      <td>242000.0</td>
+						      <td>Meta</td>
+						      <td>sql</td>
+						    </tr>
+						    <tr>
+						      <th>41</th>
+						      <td>609418</td>
+						      <td>Data Engineering Manager</td>
+						      <td>242000.0</td>
+						      <td>Meta</td>
+						      <td>python</td>
+						    </tr>
+						    <tr>
+						      <th>42</th>
+						      <td>609418</td>
+						      <td>Data Engineering Manager</td>
+						      <td>242000.0</td>
+						      <td>Meta</td>
+						      <td>perl</td>
+						    </tr>
+						    <tr>
+						      <th>43</th>
+						      <td>609418</td>
+						      <td>Data Engineering Manager</td>
+						      <td>242000.0</td>
+						      <td>Meta</td>
+						      <td>java</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									WITH top_paying_jobs AS (
+									    SELECT
+									        job_id,
+									        job_title,
+									        salary_year_avg,
+									        name AS company_name
+									    FROM
+									        job_postings_fact
+									        LEFT JOIN
+									        company_dim
+									        ON
+									        job_postings_fact.company_id = company_dim.company_id
+									    WHERE
+									        job_title_short = 'Data Engineer' AND job_location = 'Anywhere' AND salary_year_avg IS NOT NULL
+									    ORDER BY
+									        salary_year_avg DESC
+									    LIMIT 10
+									)
+
+									SELECT
+									    top_paying_jobs.*,
+									    skills
+									FROM
+									    top_paying_jobs
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    top_paying_jobs.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									ORDER BY
+									    salary_year_avg DESC
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+				</section>
+				<!-- End exclusive details group -->
 			</div>
 
 			<!-- 4th Group of Tabs and Contents -->
 			<input type="radio" name="tabs" id="tab_04" class="input-radio tabs__radio">
-			<label for="tab_04" class="label input-label tabs__label">Tab 04</label>
+			<label for="tab_04" class="label input-label tabs__label">In-demand Skills</label>
 			<div class="tab tabs__tab tab04__content">
-				<h2 class="h2 tab__heading tab04__heading">Tab 04 Content</h2>
-				<p class="p tab__text tab04__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
-				<p class="p tab__text tab04__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+				<h2 class="h2 tab__heading tab04__heading">What are the most in-demand skills? Identify the top 7 in-demand skills for a data analyst, data scientist and data engineer from all job postings.</h2>
+				<p class="p tab__text tab04__text" hidden>???</p>
+				<!-- Start exclusive details group -->
+				<section id="accordion" class="section accordion">
+					<!-- 1st details element -->
+					<details class="accordion-details details--01" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Analyst</summary>
+						<p class="p details__text" hidden>???</p>
+						<figure class="figure details__figure">
+							<img src="./images/top-7-in-demand-skills-for-data-analysts.svg" alt="Top 7 In-Demand Skills for Data Analysts" class="img figure__img details__img">
+							<figcaption class="figure__caption">Top 7 In-Demand Skills for Data Analysts</figcaption>
+						</figure>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>skills</th>
+						      <th>demand_count</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>sql</td>
+						      <td>92628</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>excel</td>
+						      <td>67031</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>python</td>
+						      <td>57326</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>tableau</td>
+						      <td>46554</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>power bi</td>
+						      <td>39468</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>r</td>
+						      <td>30075</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>sas</td>
+						      <td>28068</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									SELECT
+									    skills,
+									    COUNT(sjd.job_id) AS demand_count
+									FROM
+									    job_postings_fact
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    job_postings_fact.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									WHERE
+									    job_title_short = 'Data Analyst'
+									GROUP BY
+									    skills
+									ORDER BY
+									    demand_count DESC
+									LIMIT 7
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 2nd details element -->
+					<details class="accordion-details details--02" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Scientists</summary>
+						<p class="p details__text" hidden>???</p>
+						<figure class="figure details__figure">
+							<img src="./images/top-7-in-demand-skills-for-data-scientists.svg" alt="Top 7 In-Demand Skills for Data Scientists" class="img figure__img details__img">
+							<figcaption class="figure__caption">Top 7 In-Demand Skills for Data Scientists</figcaption>
+						</figure>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>skills</th>
+						      <th>demand_count</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>python</td>
+						      <td>114016</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>sql</td>
+						      <td>79174</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>r</td>
+						      <td>59754</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>sas</td>
+						      <td>29642</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>tableau</td>
+						      <td>29513</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>aws</td>
+						      <td>26311</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>spark</td>
+						      <td>24353</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									SELECT
+									    skills,
+									    COUNT(sjd.job_id) AS demand_count
+									FROM
+									    job_postings_fact
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    job_postings_fact.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									WHERE
+									    job_title_short = 'Data Scientist'
+									GROUP BY
+									    skills
+									ORDER BY
+									    demand_count DESC
+									LIMIT 7
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 3rd details element -->
+					<details class="accordion-details details--03" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Engineers</summary>
+						<p class="p details__text" hidden>???</p>
+						<figure class="figure details__figure">
+							<img src="./images/top-7-in-demand-skills-for-data-engineers.svg" alt="Top 7 In-Demand Skills for Data Engineers" class="img figure__img details__img">
+							<figcaption class="figure__caption">Top 7 In-Demand Skills for Data Engineers</figcaption>
+						</figure>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>skills</th>
+						      <th>demand_count</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>sql</td>
+						      <td>113375</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>python</td>
+						      <td>108265</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>aws</td>
+						      <td>62174</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>azure</td>
+						      <td>60823</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>spark</td>
+						      <td>53789</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>java</td>
+						      <td>35642</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>kafka</td>
+						      <td>29163</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									SELECT
+									    skills,
+									    COUNT(sjd.job_id) AS demand_count
+									FROM
+									    job_postings_fact
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    job_postings_fact.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									WHERE
+									    job_title_short = 'Data Engineer'
+									GROUP BY
+									    skills
+									ORDER BY
+									    demand_count DESC
+									LIMIT 7
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+				</section>
 			</div>
 
 			<!-- 5th Group of Tabs and Contents -->
 			<input type="radio" name="tabs" id="tab_05" class="input-radio tabs__radio">
-			<label for="tab_05" class="label input-label tabs__label">Tab 05</label>
+			<label for="tab_05" class="label input-label tabs__label">Top Earning Skills</label>
 			<div class="tab tabs__tab tab05__content">
-				<h2 class="h2 tab__heading tab05__heading">Tab 05 Content</h2>
-				<p class="p tab__text tab05__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
-				<p class="p tab__text tab05__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+				<h2 class="h2 tab__heading tab05__heading">What are the top skills based on salary?</h2>
+				<p class="p tab__text tab05__text" hidden>???</p>
+				<!-- Start exclusive details group -->
+				<section id="accordion" class="section accordion">
+					<!-- 1st details element -->
+					<details class="accordion-details details--01" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Analyst</summary>
+						<p class="p details__text" hidden>???</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>skills</th>
+						      <th>avg_salary</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>svn</td>
+						      <td>400000</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>solidity</td>
+						      <td>179000</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>couchbase</td>
+						      <td>160515</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>datarobot</td>
+						      <td>155486</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>golang</td>
+						      <td>155000</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>mxnet</td>
+						      <td>149000</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>dplyr</td>
+						      <td>147633</td>
+						    </tr>
+						    <tr>
+						      <th>7</th>
+						      <td>vmware</td>
+						      <td>147500</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>terraform</td>
+						      <td>146734</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>twilio</td>
+						      <td>138500</td>
+						    </tr>
+						    <tr>
+						      <th>10</th>
+						      <td>gitlab</td>
+						      <td>134126</td>
+						    </tr>
+						    <tr>
+						      <th>11</th>
+						      <td>kafka</td>
+						      <td>129999</td>
+						    </tr>
+						    <tr>
+						      <th>12</th>
+						      <td>puppet</td>
+						      <td>129820</td>
+						    </tr>
+						    <tr>
+						      <th>13</th>
+						      <td>keras</td>
+						      <td>127013</td>
+						    </tr>
+						    <tr>
+						      <th>14</th>
+						      <td>pytorch</td>
+						      <td>125226</td>
+						    </tr>
+						    <tr>
+						      <th>15</th>
+						      <td>perl</td>
+						      <td>124686</td>
+						    </tr>
+						    <tr>
+						      <th>16</th>
+						      <td>ansible</td>
+						      <td>124370</td>
+						    </tr>
+						    <tr>
+						      <th>17</th>
+						      <td>hugging face</td>
+						      <td>123950</td>
+						    </tr>
+						    <tr>
+						      <th>18</th>
+						      <td>tensorflow</td>
+						      <td>120647</td>
+						    </tr>
+						    <tr>
+						      <th>19</th>
+						      <td>cassandra</td>
+						      <td>118407</td>
+						    </tr>
+						    <tr>
+						      <th>20</th>
+						      <td>notion</td>
+						      <td>118092</td>
+						    </tr>
+						    <tr>
+						      <th>21</th>
+						      <td>atlassian</td>
+						      <td>117966</td>
+						    </tr>
+						    <tr>
+						      <th>22</th>
+						      <td>bitbucket</td>
+						      <td>116712</td>
+						    </tr>
+						    <tr>
+						      <th>23</th>
+						      <td>airflow</td>
+						      <td>116387</td>
+						    </tr>
+						    <tr>
+						      <th>24</th>
+						      <td>scala</td>
+						      <td>115480</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									SELECT
+									    skills,
+									    ROUND(AVG(salary_year_avg), 0) AS avg_salary
+									FROM
+									    job_postings_fact
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    job_postings_fact.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									WHERE
+									    job_title_short = 'Data Analyst' AND salary_year_avg IS NOT NULL
+									GROUP BY
+									    skills
+									ORDER BY
+									    avg_salary DESC
+									LIMIT 25
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 2nd details element -->
+					<details class="accordion-details details--02" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Scientist</summary>
+						<p class="p details__text" hidden>???</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>skills</th>
+						      <th>avg_salary</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>asana</td>
+						      <td>215477</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>airtable</td>
+						      <td>201143</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>redhat</td>
+						      <td>189500</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>watson</td>
+						      <td>187417</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>elixir</td>
+						      <td>170824</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>lua</td>
+						      <td>170500</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>slack</td>
+						      <td>168219</td>
+						    </tr>
+						    <tr>
+						      <th>7</th>
+						      <td>solidity</td>
+						      <td>166980</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>ruby on rails</td>
+						      <td>166500</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>rshiny</td>
+						      <td>166436</td>
+						    </tr>
+						    <tr>
+						      <th>10</th>
+						      <td>notion</td>
+						      <td>165636</td>
+						    </tr>
+						    <tr>
+						      <th>11</th>
+						      <td>objective-c</td>
+						      <td>164500</td>
+						    </tr>
+						    <tr>
+						      <th>12</th>
+						      <td>neo4j</td>
+						      <td>163971</td>
+						    </tr>
+						    <tr>
+						      <th>13</th>
+						      <td>dplyr</td>
+						      <td>163111</td>
+						    </tr>
+						    <tr>
+						      <th>14</th>
+						      <td>hugging face</td>
+						      <td>160868</td>
+						    </tr>
+						    <tr>
+						      <th>15</th>
+						      <td>dynamodb</td>
+						      <td>160581</td>
+						    </tr>
+						    <tr>
+						      <th>16</th>
+						      <td>haskell</td>
+						      <td>157500</td>
+						    </tr>
+						    <tr>
+						      <th>17</th>
+						      <td>unity</td>
+						      <td>156881</td>
+						    </tr>
+						    <tr>
+						      <th>18</th>
+						      <td>airflow</td>
+						      <td>155878</td>
+						    </tr>
+						    <tr>
+						      <th>19</th>
+						      <td>codecommit</td>
+						      <td>154684</td>
+						    </tr>
+						    <tr>
+						      <th>20</th>
+						      <td>unreal</td>
+						      <td>153278</td>
+						    </tr>
+						    <tr>
+						      <th>21</th>
+						      <td>theano</td>
+						      <td>153133</td>
+						    </tr>
+						    <tr>
+						      <th>22</th>
+						      <td>zoom</td>
+						      <td>151677</td>
+						    </tr>
+						    <tr>
+						      <th>23</th>
+						      <td>bigquery</td>
+						      <td>149292</td>
+						    </tr>
+						    <tr>
+						      <th>24</th>
+						      <td>atlassian</td>
+						      <td>148715</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									SELECT
+									    skills,
+									    ROUND(AVG(salary_year_avg), 0) AS avg_salary
+									FROM
+									    job_postings_fact
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    job_postings_fact.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									WHERE
+									    job_title_short = 'Data Scientist' AND salary_year_avg IS NOT NULL
+									GROUP BY
+									    skills
+									ORDER BY
+									    avg_salary DESC
+									LIMIT 25
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 3rd details element -->
+					<details class="accordion-details details--03" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Engineer</summary>
+						<p class="p details__text" hidden>???</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>skills</th>
+						      <th>avg_salary</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>node</td>
+						      <td>181862</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>mongo</td>
+						      <td>179403</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>ggplot2</td>
+						      <td>176250</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>solidity</td>
+						      <td>166250</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>vue</td>
+						      <td>159375</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>codecommit</td>
+						      <td>155000</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>ubuntu</td>
+						      <td>154455</td>
+						    </tr>
+						    <tr>
+						      <th>7</th>
+						      <td>clojure</td>
+						      <td>153663</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>cassandra</td>
+						      <td>150255</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>rust</td>
+						      <td>147771</td>
+						    </tr>
+						    <tr>
+						      <th>10</th>
+						      <td>drupal</td>
+						      <td>147500</td>
+						    </tr>
+						    <tr>
+						      <th>11</th>
+						      <td>perl</td>
+						      <td>145540</td>
+						    </tr>
+						    <tr>
+						      <th>12</th>
+						      <td>next.js</td>
+						      <td>145000</td>
+						    </tr>
+						    <tr>
+						      <th>13</th>
+						      <td>angular</td>
+						      <td>143319</td>
+						    </tr>
+						    <tr>
+						      <th>14</th>
+						      <td>scala</td>
+						      <td>143161</td>
+						    </tr>
+						    <tr>
+						      <th>15</th>
+						      <td>kafka</td>
+						      <td>143086</td>
+						    </tr>
+						    <tr>
+						      <th>16</th>
+						      <td>gdpr</td>
+						      <td>142369</td>
+						    </tr>
+						    <tr>
+						      <th>17</th>
+						      <td>shell</td>
+						      <td>141725</td>
+						    </tr>
+						    <tr>
+						      <th>18</th>
+						      <td>macos</td>
+						      <td>141617</td>
+						    </tr>
+						    <tr>
+						      <th>19</th>
+						      <td>numpy</td>
+						      <td>141605</td>
+						    </tr>
+						    <tr>
+						      <th>20</th>
+						      <td>opencv</td>
+						      <td>141250</td>
+						    </tr>
+						    <tr>
+						      <th>21</th>
+						      <td>atlassian</td>
+						      <td>140644</td>
+						    </tr>
+						    <tr>
+						      <th>22</th>
+						      <td>ibm cloud</td>
+						      <td>140547</td>
+						    </tr>
+						    <tr>
+						      <th>23</th>
+						      <td>splunk</td>
+						      <td>140156</td>
+						    </tr>
+						    <tr>
+						      <th>24</th>
+						      <td>kubernetes</td>
+						      <td>140092</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									SELECT
+									    skills,
+									    ROUND(AVG(salary_year_avg), 0) AS avg_salary
+									FROM
+									    job_postings_fact
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    job_postings_fact.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									WHERE
+									    job_title_short = 'Data Engineer' AND salary_year_avg IS NOT NULL
+									GROUP BY
+									    skills
+									ORDER BY
+									    avg_salary DESC
+									LIMIT 25
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+				</section>
 			</div>
 
 			<!-- 6th Group of Tabs and Contents -->
 			<input type="radio" name="tabs" id="tab_06" class="input-radio tabs__radio">
-			<label for="tab_06" class="label input-label tabs__label">Tab 06</label>
+			<label for="tab_06" class="label input-label tabs__label">Optimal Skills</label>
 			<div class="tab tabs__tab tab06__content">
-				<h2 class="h2 tab__heading tab06__heading">Tab 06 Content</h2>
-				<p class="p tab__text tab06__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
-				<p class="p tab__text tab06__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+				<h2 class="h2 tab__heading tab06__heading">What are the most optimal skills to learn (aka it is in high demand and a high-paying skill)?</h2>
+				<p class="p tab__text tab05__text" hidden>???</p>
+				<!-- Start exclusive details group -->
+				<section id="accordion" class="section accordion">
+					<!-- 1st details element -->
+					<details class="accordion-details details--01" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Analyst</summary>
+						<p class="p details__text" hidden>???</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>skill_id</th>
+						      <th>skills</th>
+						      <th>demand_count</th>
+						      <th>avg_salary</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>8</td>
+						      <td>go</td>
+						      <td>27</td>
+						      <td>115320</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>234</td>
+						      <td>confluence</td>
+						      <td>11</td>
+						      <td>114210</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>97</td>
+						      <td>hadoop</td>
+						      <td>22</td>
+						      <td>113193</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>80</td>
+						      <td>snowflake</td>
+						      <td>37</td>
+						      <td>112948</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>74</td>
+						      <td>azure</td>
+						      <td>34</td>
+						      <td>111225</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>77</td>
+						      <td>bigquery</td>
+						      <td>13</td>
+						      <td>109654</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>76</td>
+						      <td>aws</td>
+						      <td>32</td>
+						      <td>108317</td>
+						    </tr>
+						    <tr>
+						      <th>7</th>
+						      <td>4</td>
+						      <td>java</td>
+						      <td>17</td>
+						      <td>106906</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>194</td>
+						      <td>ssis</td>
+						      <td>12</td>
+						      <td>106683</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>233</td>
+						      <td>jira</td>
+						      <td>20</td>
+						      <td>104918</td>
+						    </tr>
+						    <tr>
+						      <th>10</th>
+						      <td>79</td>
+						      <td>oracle</td>
+						      <td>37</td>
+						      <td>104534</td>
+						    </tr>
+						    <tr>
+						      <th>11</th>
+						      <td>185</td>
+						      <td>looker</td>
+						      <td>49</td>
+						      <td>103795</td>
+						    </tr>
+						    <tr>
+						      <th>12</th>
+						      <td>2</td>
+						      <td>nosql</td>
+						      <td>13</td>
+						      <td>101414</td>
+						    </tr>
+						    <tr>
+						      <th>13</th>
+						      <td>1</td>
+						      <td>python</td>
+						      <td>236</td>
+						      <td>101397</td>
+						    </tr>
+						    <tr>
+						      <th>14</th>
+						      <td>5</td>
+						      <td>r</td>
+						      <td>148</td>
+						      <td>100499</td>
+						    </tr>
+						    <tr>
+						      <th>15</th>
+						      <td>78</td>
+						      <td>redshift</td>
+						      <td>16</td>
+						      <td>99936</td>
+						    </tr>
+						    <tr>
+						      <th>16</th>
+						      <td>187</td>
+						      <td>qlik</td>
+						      <td>13</td>
+						      <td>99631</td>
+						    </tr>
+						    <tr>
+						      <th>17</th>
+						      <td>182</td>
+						      <td>tableau</td>
+						      <td>230</td>
+						      <td>99288</td>
+						    </tr>
+						    <tr>
+						      <th>18</th>
+						      <td>197</td>
+						      <td>ssrs</td>
+						      <td>14</td>
+						      <td>99171</td>
+						    </tr>
+						    <tr>
+						      <th>19</th>
+						      <td>92</td>
+						      <td>spark</td>
+						      <td>13</td>
+						      <td>99077</td>
+						    </tr>
+						    <tr>
+						      <th>20</th>
+						      <td>13</td>
+						      <td>c++</td>
+						      <td>11</td>
+						      <td>98958</td>
+						    </tr>
+						    <tr>
+						      <th>21</th>
+						      <td>186</td>
+						      <td>sas</td>
+						      <td>63</td>
+						      <td>98902</td>
+						    </tr>
+						    <tr>
+						      <th>22</th>
+						      <td>7</td>
+						      <td>sas</td>
+						      <td>63</td>
+						      <td>98902</td>
+						    </tr>
+						    <tr>
+						      <th>23</th>
+						      <td>61</td>
+						      <td>sql server</td>
+						      <td>35</td>
+						      <td>97786</td>
+						    </tr>
+						    <tr>
+						      <th>24</th>
+						      <td>9</td>
+						      <td>javascript</td>
+						      <td>20</td>
+						      <td>97587</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									SELECT
+									    sd.skill_id,
+									    sd.skills,
+									    COUNT(sjd.job_id) AS demand_count,
+									    ROUND(AVG(jpf.salary_year_avg), 0) AS avg_salary
+									FROM
+									    job_postings_fact AS jpf
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    jpf.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									WHERE
+									    job_title_short = 'Data Analyst' AND salary_year_avg IS NOT NULL AND job_work_from_home = True
+									GROUP BY
+									    sd.skill_id
+									HAVING
+									    COUNT(sjd.job_id) > 10
+									ORDER BY
+									    avg_salary DESC,
+									    demand_count DESC
+									LIMIT 25
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 2nd details element -->
+					<details class="accordion-details details--02" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Scientist</summary>
+						<p class="p details__text" hidden>???</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>skill_id</th>
+						      <th>skills</th>
+						      <th>demand_count</th>
+						      <th>avg_salary</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>26</td>
+						      <td>c</td>
+						      <td>48</td>
+						      <td>164865</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>8</td>
+						      <td>go</td>
+						      <td>57</td>
+						      <td>164691</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>187</td>
+						      <td>qlik</td>
+						      <td>15</td>
+						      <td>164485</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>185</td>
+						      <td>looker</td>
+						      <td>57</td>
+						      <td>158715</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>96</td>
+						      <td>airflow</td>
+						      <td>23</td>
+						      <td>157414</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>77</td>
+						      <td>bigquery</td>
+						      <td>36</td>
+						      <td>157142</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>3</td>
+						      <td>scala</td>
+						      <td>56</td>
+						      <td>156702</td>
+						    </tr>
+						    <tr>
+						      <th>7</th>
+						      <td>81</td>
+						      <td>gcp</td>
+						      <td>59</td>
+						      <td>155811</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>80</td>
+						      <td>snowflake</td>
+						      <td>72</td>
+						      <td>152687</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>101</td>
+						      <td>pytorch</td>
+						      <td>115</td>
+						      <td>152603</td>
+						    </tr>
+						    <tr>
+						      <th>10</th>
+						      <td>78</td>
+						      <td>redshift</td>
+						      <td>36</td>
+						      <td>151708</td>
+						    </tr>
+						    <tr>
+						      <th>11</th>
+						      <td>99</td>
+						      <td>tensorflow</td>
+						      <td>126</td>
+						      <td>151536</td>
+						    </tr>
+						    <tr>
+						      <th>12</th>
+						      <td>233</td>
+						      <td>jira</td>
+						      <td>22</td>
+						      <td>151165</td>
+						    </tr>
+						    <tr>
+						      <th>13</th>
+						      <td>92</td>
+						      <td>spark</td>
+						      <td>149</td>
+						      <td>150188</td>
+						    </tr>
+						    <tr>
+						      <th>14</th>
+						      <td>76</td>
+						      <td>aws</td>
+						      <td>217</td>
+						      <td>149630</td>
+						    </tr>
+						    <tr>
+						      <th>15</th>
+						      <td>94</td>
+						      <td>numpy</td>
+						      <td>73</td>
+						      <td>149089</td>
+						    </tr>
+						    <tr>
+						      <th>16</th>
+						      <td>106</td>
+						      <td>scikit-learn</td>
+						      <td>81</td>
+						      <td>148964</td>
+						    </tr>
+						    <tr>
+						      <th>17</th>
+						      <td>95</td>
+						      <td>pyspark</td>
+						      <td>34</td>
+						      <td>147544</td>
+						    </tr>
+						    <tr>
+						      <th>18</th>
+						      <td>182</td>
+						      <td>tableau</td>
+						      <td>219</td>
+						      <td>146970</td>
+						    </tr>
+						    <tr>
+						      <th>19</th>
+						      <td>2</td>
+						      <td>nosql</td>
+						      <td>31</td>
+						      <td>146110</td>
+						    </tr>
+						    <tr>
+						      <th>20</th>
+						      <td>4</td>
+						      <td>java</td>
+						      <td>64</td>
+						      <td>145706</td>
+						    </tr>
+						    <tr>
+						      <th>21</th>
+						      <td>196</td>
+						      <td>powerpoint</td>
+						      <td>23</td>
+						      <td>145139</td>
+						    </tr>
+						    <tr>
+						      <th>22</th>
+						      <td>93</td>
+						      <td>pandas</td>
+						      <td>113</td>
+						      <td>144816</td>
+						    </tr>
+						    <tr>
+						      <th>23</th>
+						      <td>213</td>
+						      <td>kubernetes</td>
+						      <td>25</td>
+						      <td>144498</td>
+						    </tr>
+						    <tr>
+						      <th>24</th>
+						      <td>1</td>
+						      <td>python</td>
+						      <td>763</td>
+						      <td>143828</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									SELECT
+									    sd.skill_id,
+									    sd.skills,
+									    COUNT(sjd.job_id) AS demand_count,
+									    ROUND(AVG(jpf.salary_year_avg), 0) AS avg_salary
+									FROM
+									    job_postings_fact AS jpf
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    jpf.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									WHERE
+									    job_title_short = 'Data Scientist' AND salary_year_avg IS NOT NULL AND job_work_from_home = True
+									GROUP BY
+									    sd.skill_id
+									HAVING
+									    COUNT(sjd.job_id) > 10
+									ORDER BY
+									    avg_salary DESC,
+									    demand_count DESC
+									LIMIT 25
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 3rd details element -->
+					<details class="accordion-details details--03" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Engineer</summary>
+						<p class="p details__text" hidden>???</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>skill_id</th>
+						      <th>skills</th>
+						      <th>demand_count</th>
+						      <th>avg_salary</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>213</td>
+						      <td>kubernetes</td>
+						      <td>56</td>
+						      <td>158190</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>94</td>
+						      <td>numpy</td>
+						      <td>14</td>
+						      <td>157592</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>63</td>
+						      <td>cassandra</td>
+						      <td>19</td>
+						      <td>151282</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>98</td>
+						      <td>kafka</td>
+						      <td>134</td>
+						      <td>150549</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>27</td>
+						      <td>golang</td>
+						      <td>11</td>
+						      <td>147818</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>212</td>
+						      <td>terraform</td>
+						      <td>44</td>
+						      <td>146057</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>93</td>
+						      <td>pandas</td>
+						      <td>38</td>
+						      <td>144656</td>
+						    </tr>
+						    <tr>
+						      <th>7</th>
+						      <td>59</td>
+						      <td>elasticsearch</td>
+						      <td>21</td>
+						      <td>144102</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>144</td>
+						      <td>ruby</td>
+						      <td>14</td>
+						      <td>144000</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>30</td>
+						      <td>ruby</td>
+						      <td>14</td>
+						      <td>144000</td>
+						    </tr>
+						    <tr>
+						      <th>10</th>
+						      <td>83</td>
+						      <td>aurora</td>
+						      <td>14</td>
+						      <td>142887</td>
+						    </tr>
+						    <tr>
+						      <th>11</th>
+						      <td>101</td>
+						      <td>pytorch</td>
+						      <td>11</td>
+						      <td>142254</td>
+						    </tr>
+						    <tr>
+						      <th>12</th>
+						      <td>3</td>
+						      <td>scala</td>
+						      <td>113</td>
+						      <td>141777</td>
+						    </tr>
+						    <tr>
+						      <th>13</th>
+						      <td>92</td>
+						      <td>spark</td>
+						      <td>237</td>
+						      <td>139838</td>
+						    </tr>
+						    <tr>
+						      <th>14</th>
+						      <td>95</td>
+						      <td>pyspark</td>
+						      <td>64</td>
+						      <td>139428</td>
+						    </tr>
+						    <tr>
+						      <th>15</th>
+						      <td>64</td>
+						      <td>dynamodb</td>
+						      <td>27</td>
+						      <td>138883</td>
+						    </tr>
+						    <tr>
+						      <th>16</th>
+						      <td>18</td>
+						      <td>mongodb</td>
+						      <td>32</td>
+						      <td>138569</td>
+						    </tr>
+						    <tr>
+						      <th>17</th>
+						      <td>62</td>
+						      <td>mongodb</td>
+						      <td>32</td>
+						      <td>138569</td>
+						    </tr>
+						    <tr>
+						      <th>18</th>
+						      <td>96</td>
+						      <td>airflow</td>
+						      <td>151</td>
+						      <td>138518</td>
+						    </tr>
+						    <tr>
+						      <th>19</th>
+						      <td>4</td>
+						      <td>java</td>
+						      <td>139</td>
+						      <td>138087</td>
+						    </tr>
+						    <tr>
+						      <th>20</th>
+						      <td>97</td>
+						      <td>hadoop</td>
+						      <td>98</td>
+						      <td>137707</td>
+						    </tr>
+						    <tr>
+						      <th>21</th>
+						      <td>17</td>
+						      <td>typescript</td>
+						      <td>19</td>
+						      <td>137207</td>
+						    </tr>
+						    <tr>
+						      <th>22</th>
+						      <td>2</td>
+						      <td>nosql</td>
+						      <td>93</td>
+						      <td>136430</td>
+						    </tr>
+						    <tr>
+						      <th>23</th>
+						      <td>6</td>
+						      <td>shell</td>
+						      <td>34</td>
+						      <td>135499</td>
+						    </tr>
+						    <tr>
+						      <th>24</th>
+						      <td>185</td>
+						      <td>looker</td>
+						      <td>30</td>
+						      <td>134614</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+									SELECT
+									    sd.skill_id,
+									    sd.skills,
+									    COUNT(sjd.job_id) AS demand_count,
+									    ROUND(AVG(jpf.salary_year_avg), 0) AS avg_salary
+									FROM
+									    job_postings_fact AS jpf
+									    INNER JOIN
+									    skills_job_dim AS sjd
+									    ON
+									    jpf.job_id = sjd.job_id
+									    INNER JOIN
+									    skills_dim AS sd
+									    ON
+									    sd.skill_id = sjd.skill_id
+									WHERE
+									    job_title_short = 'Data Engineer' AND salary_year_avg IS NOT NULL AND job_work_from_home = True
+									GROUP BY
+									    sd.skill_id
+									HAVING
+									    COUNT(sjd.job_id) > 10
+									ORDER BY
+									    avg_salary DESC,
+									    demand_count DESC
+									LIMIT 25
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+				</section>
 			</div>
 
 			<!-- 7th Group of Tabs and Contents -->
@@ -360,8 +2902,49 @@
 			<label for="tab_07" class="label input-label tabs__label">Tab 07</label>
 			<div class="tab tabs__tab tab07__content">
 				<h2 class="h2 tab__heading tab07__heading">Tab 07 Content</h2>
-				<p class="p tab__text tab07__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
-				<p class="p tab__text tab07__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+				<p class="p tab__text tab05__text" hidden>???</p>
+				<!-- Start exclusive details group -->
+				<section id="accordion" class="section accordion">
+					<!-- 1st details element -->
+					<details class="accordion-details details--01" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Analyst</summary>
+						<p class="p details__text" hidden>???</p>
+						<table></table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 2nd details element -->
+					<details class="accordion-details details--02" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Scientist</summary>
+						<p class="p details__text" hidden>???</p>
+						<table></table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 3rd details element -->
+					<details class="accordion-details details--03" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Engineer</summary>
+						<p class="p details__text" hidden>???</p>
+						<table></table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+								</code>
+							</details>
+						</blockquote>
+					</details>
+				</section>
 			</div>
 
 			<!-- 8th Group of Tabs and Contents -->
@@ -369,8 +2952,49 @@
 			<label for="tab_08" class="label input-label tabs__label">Tab 08</label>
 			<div class="tab tabs__tab tab08__content">
 				<h2 class="h2 tab__heading tab08__heading">Tab 08 Content</h2>
-				<p class="p tab__text tab08__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
-				<p class="p tab__text tab08__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+				<p class="p tab__text tab05__text" hidden>???</p>
+				<!-- Start exclusive details group -->
+				<section id="accordion" class="section accordion">
+					<!-- 1st details element -->
+					<details class="accordion-details details--01" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Analyst</summary>
+						<p class="p details__text" hidden>???</p>
+						<table></table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 2nd details element -->
+					<details class="accordion-details details--02" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Scientist</summary>
+						<p class="p details__text" hidden>???</p>
+						<table></table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 3rd details element -->
+					<details class="accordion-details details--03" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Engineer</summary>
+						<p class="p details__text" hidden>???</p>
+						<table></table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQL Query</summary>
+								<code class="code">
+								</code>
+							</details>
+						</blockquote>
+					</details>
+				</section>
 			</div>
 
 			<!-- 9th Group of Tabs and Contents -->
@@ -378,8 +3002,7 @@
 			<label for="tab_09" class="label input-label tabs__label">Tab 09</label>
 			<div class="tab tabs__tab tab09__content">
 				<h2 class="h2 tab__heading tab09__heading">Tab 09 Content</h2>
-				<p class="p tab__text tab09__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
-				<p class="p tab__text tab09__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+				<p class="p tab__text tab05__text" hidden>???</p>
 			</div>
 
 			<!-- 10th Group of Tabs and Contents -->
@@ -387,8 +3010,7 @@
 			<label for="tab_10" class="label input-label tabs__label">Tab 10</label>
 			<div class="tab tabs__tab tab10__content">
 				<h2 class="h2 tab__heading tab10__heading">Tab 10 Content</h2>
-				<p class="p tab__text tab10__text">Of meaning little ungainly be and of, on my never nevermore i tufted a presently. Implore madam she chamber thing. Sir only.</p>
-				<p class="p tab__text tab10__text">Olden be my near ere childe name, eremites sacred later a yea of. Was venerable me heart counsel. At clay not fabled, are lurked said but sight, memory kiss nor sore a time been him, aye sullen nor he gild in mammon.</p>
+				<p class="p tab__text tab05__text" hidden>???</p>
 			</div>
 		</section>
 	</main>

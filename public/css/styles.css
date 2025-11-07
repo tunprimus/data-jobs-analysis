@@ -684,6 +684,20 @@ select:disabled {
 }
 
 
+.code {
+	display: grid;
+	padding-right: 50vw;
+	padding-left: 1vw;
+	margin: 1vw;
+	text-align: left;
+	text-wrap: pretty;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
+
 /* ---------------- */
 /* Responsive Table */
 /* ---------------- */
@@ -791,6 +805,23 @@ select:disabled {
 	}
 }
 
+/* ---------------- */
+/* DataFrame Tables */
+/* ---------------- */
+
+.dataframe tbody tr th:only-of-type {
+  vertical-align: middle;
+}
+
+.dataframe tbody tr th {
+  vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+
+
 /* ----------------------- */
 /* Exclusive Details Group */
 /* ----------------------- */
@@ -800,7 +831,7 @@ select:disabled {
 	outline: 0.0625rem solid hsl(195, 53%, 85%);
 }
 
-.details {
+.accordion-details {
 	margin: 0;
 }
 
@@ -809,7 +840,7 @@ select:disabled {
 	padding: 0.75rem 1.5rem;
 }
 
-.summary {
+.accordion-summary {
 	padding: 0.5rem;
 	background-color: hsl(195, 40%, 96%);
 	border-block: 0.0625rem solid hsl(195, 53%, 80%);
@@ -817,11 +848,11 @@ select:disabled {
 	transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-.summary:hover {
+.accordion-summary:hover {
 	background-color: hsl(195, 40%, 86%);
 }
 
-.summary:last-of-type {
+.accordion-summary:last-of-type {
 	border-bottom: 0.0625rem solid hsl(195, 53%, 85%);
 }
 
