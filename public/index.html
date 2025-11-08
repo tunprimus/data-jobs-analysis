@@ -2899,47 +2899,358 @@
 
 			<!-- 7th Group of Tabs and Contents -->
 			<input type="radio" name="tabs" id="tab_07" class="input-radio tabs__radio">
-			<label for="tab_07" class="label input-label tabs__label">Tab 07</label>
+			<label for="tab_07" class="label input-label tabs__label">Country Highlights</label>
 			<div class="tab tabs__tab tab07__content">
-				<h2 class="h2 tab__heading tab07__heading">Tab 07 Content</h2>
+				<h2 class="h2 tab__heading tab07__heading">What are the features and discoveries related to Nigeria and Germany versus the rest of the world?</h2>
 				<p class="p tab__text tab05__text" hidden>???</p>
 				<!-- Start exclusive details group -->
 				<section id="accordion" class="section accordion">
 					<!-- 1st details element -->
 					<details class="accordion-details details--01" name="faq-accordion">
-						<summary class="accordion-summary details__summary">Data Analyst</summary>
+						<summary class="accordion-summary details__summary">Min, Mean, Median & Max Salaries</summary>
 						<p class="p details__text" hidden>???</p>
-						<table></table>
+						<figure class="figure details__figure">
+							<img src="./images/comparison-salary-ranges-worldwide-nigeria-germany.svg" alt="Min, Mean, Median & Max Salaries" class="img figure__img details__img">
+							<figcaption class="figure__caption">Salary Ranges: Worldwide vs Nigeria vs Germany</figcaption>
+						</figure>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>job_location</th>
+						      <th>min_salary</th>
+						      <th>avg_salary</th>
+						      <th>median_salary</th>
+						      <th>max_salary</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>Worldwide</td>
+						      <td>15000.0</td>
+						      <td>123268.8</td>
+						      <td>115000.0</td>
+						      <td>960000.0</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>Nigeria</td>
+						      <td>69300.0</td>
+						      <td>84650.0</td>
+						      <td>84650.0</td>
+						      <td>100000.0</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>Germany</td>
+						      <td>49896.0</td>
+						      <td>131498.5</td>
+						      <td>147500.0</td>
+						      <td>198000.0</td>
+						    </tr>
+						  </tbody>
+						</table>
 						<blockquote>
 							<details class="details">
-								<summary class="summary">SQL Query</summary>
+								<summary class="summary">Worldwide SQL Query</summary>
 								<code class="code">
+									WITH sql_median AS (
+										SELECT ROUND(AVG(salary_year_avg), 1) AS median
+										FROM (
+											SELECT
+												salary_year_avg
+											FROM
+												job_postings_fact
+											WHERE
+												salary_year_avg IS NOT NULL
+											ORDER BY
+												salary_year_avg
+											LIMIT 2 - (SELECT COUNT(*) FROM job_postings_fact WHERE salary_year_avg IS NOT NULL) % 2
+											OFFSET
+												(SELECT (COUNT(*) - 1) / 2 FROM job_postings_fact WHERE salary_year_avg IS NOT NULL)
+
+										) AS subquery
+										WHERE
+											salary_year_avg IS NOT NULL
+									)
+
+									SELECT
+									    'Worldwide' AS job_location,
+									    MIN(salary_year_avg) AS min_salary,
+									    ROUND(AVG(salary_year_avg), 1) AS avg_salary,
+										(SELECT * FROM sql_median) AS median_salary,
+									    MAX(salary_year_avg) AS max_salary
+									FROM
+									    job_postings_fact
+									WHERE
+										salary_year_avg IS NOT NULL
+									;
+								</code>
+							</details>
+						</blockquote>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">Nigeria SQL Query</summary>
+								<code class="code">
+									WITH sql_median AS (
+									SELECT ROUND(AVG(salary_year_avg), 1) AS median
+									FROM (
+										SELECT
+											salary_year_avg
+										FROM
+											job_postings_fact
+										WHERE
+											salary_year_avg IS NOT NULL AND job_location LIKE 'Nigeria'
+										ORDER BY
+											salary_year_avg
+										LIMIT 2 - (SELECT COUNT(*) FROM job_postings_fact WHERE salary_year_avg IS NOT NULL AND job_location LIKE 'Nigeria') % 2
+										OFFSET
+											(SELECT (COUNT(*) - 1) / 2 FROM job_postings_fact WHERE salary_year_avg IS NOT NULL AND job_location LIKE 'Nigeria')
+
+									) AS subquery
+									WHERE
+										salary_year_avg IS NOT NULL
+									)
+
+									SELECT
+									    job_location,
+									    MIN(salary_year_avg) AS min_salary,
+									    ROUND(AVG(salary_year_avg), 1) AS avg_salary,
+										(SELECT * FROM sql_median) AS median_salary,
+									    MAX(salary_year_avg) AS max_salary
+									FROM
+									    job_postings_fact
+									WHERE
+										salary_year_avg IS NOT NULL AND job_location LIKE 'Nigeria'
+									GROUP BY
+									    job_location
+									;
+								</code>
+							</details>
+						</blockquote>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">Germany SQL Query</summary>
+								<code class="code">
+									WITH sql_median AS (
+									SELECT ROUND(AVG(salary_year_avg), 1) AS median
+									FROM (
+										SELECT
+											salary_year_avg
+										FROM
+											job_postings_fact
+										WHERE
+											salary_year_avg IS NOT NULL AND job_location LIKE 'Germany'
+										ORDER BY
+											salary_year_avg
+										LIMIT 2 - (SELECT COUNT(*) FROM job_postings_fact WHERE salary_year_avg IS NOT NULL AND job_location LIKE 'Germany') % 2
+										OFFSET
+											(SELECT (COUNT(*) - 1) / 2 FROM job_postings_fact WHERE salary_year_avg IS NOT NULL AND job_location LIKE 'Germany')
+
+									) AS subquery
+									WHERE
+										salary_year_avg IS NOT NULL
+									)
+
+									SELECT
+									    job_location,
+									    MIN(salary_year_avg) AS min_salary,
+									    ROUND(AVG(salary_year_avg), 1) AS avg_salary,
+										(SELECT * FROM sql_median) AS median_salary,
+									    MAX(salary_year_avg) AS max_salary
+									FROM
+									    job_postings_fact
+									WHERE
+										salary_year_avg IS NOT NULL AND job_location LIKE 'Germany'
+									GROUP BY
+									    job_location
+									;
 								</code>
 							</details>
 						</blockquote>
 					</details>
 					<!-- 2nd details element -->
 					<details class="accordion-details details--02" name="faq-accordion">
-						<summary class="accordion-summary details__summary">Data Scientist</summary>
+						<summary class="accordion-summary details__summary">Remote vs Onsite Job Offers</summary>
 						<p class="p details__text" hidden>???</p>
-						<table></table>
+						<figure class="figure details__figure">
+							<img src="./images/comparison-remote-vs-onsite-job-offer-worldwide-nigeria-germany.svg" alt="Job Offers: Worldwide vs Nigeria vs Germany Plus" class="img figure__img details__img">
+							<figcaption class="figure__caption">Job Offers: Worldwide vs Nigeria vs Germany Plus</figcaption>
+						</figure>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>job_location</th>
+						      <th>number_of_jobs</th>
+						      <th>location_category</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>Worldwide</td>
+						      <td>718080</td>
+						      <td>Onsite</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>Worldwide</td>
+						      <td>69606</td>
+						      <td>Remote</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>Nigeria</td>
+						      <td>955</td>
+						      <td>Onsite</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>Nigeria</td>
+						      <td>97</td>
+						      <td>Remote</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>Germany</td>
+						      <td>26449</td>
+						      <td>Onsite</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>Germany</td>
+						      <td>1333</td>
+						      <td>Remote</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>United States</td>
+						      <td>183793</td>
+						      <td>Onsite</td>
+						    </tr>
+						    <tr>
+						      <th>7</th>
+						      <td>United States</td>
+						      <td>23150</td>
+						      <td>Remote</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>India</td>
+						      <td>45474</td>
+						      <td>Onsite</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>India</td>
+						      <td>5723</td>
+						      <td>Remote</td>
+						    </tr>
+						  </tbody>
+						</table>
 						<blockquote>
 							<details class="details">
 								<summary class="summary">SQL Query</summary>
 								<code class="code">
-								</code>
-							</details>
-						</blockquote>
-					</details>
-					<!-- 3rd details element -->
-					<details class="accordion-details details--03" name="faq-accordion">
-						<summary class="accordion-summary details__summary">Data Engineer</summary>
-						<p class="p details__text" hidden>???</p>
-						<table></table>
-						<blockquote>
-							<details class="details">
-								<summary class="summary">SQL Query</summary>
-								<code class="code">
+									/*
+									worldwide_remote_vs_onsite_jobs_query
+									*/
+									--
+									SELECT
+										'Worldwide' AS job_location,
+									    COUNT(job_id) AS number_of_jobs,
+									    CASE
+									        WHEN job_work_from_home = True THEN 'Remote'
+									        WHEN job_work_from_home = False THEN 'Onsite'
+									        ELSE 'Unknown'
+									    END AS location_category
+									FROM
+									    job_postings_fact
+									GROUP BY
+										location_category
+									;
+									--
+									/*
+									nigeria_remote_vs_onsite_jobs_query
+									*/
+									--
+									SELECT
+										'Nigeria' AS job_location,
+									    COUNT(job_id) AS number_of_jobs,
+									    CASE
+									        WHEN job_work_from_home = True THEN 'Remote'
+									        WHEN job_work_from_home = False THEN 'Onsite'
+									        ELSE 'Unknown'
+									    END AS location_category
+									FROM
+									    job_postings_fact
+									WHERE
+									    job_country LIKE 'Nigeria'
+									GROUP BY
+										location_category
+									;
+									--
+									/*
+									germany_remote_vs_onsite_jobs_query
+									*/
+									--
+									SELECT
+										'Germany' AS job_location,
+									    COUNT(job_id) AS number_of_jobs,
+									    CASE
+									        WHEN job_work_from_home = True THEN 'Remote'
+									        WHEN job_work_from_home = False THEN 'Onsite'
+									        ELSE 'Unknown'
+									    END AS location_category
+									FROM
+									    job_postings_fact
+									WHERE
+									    job_country LIKE 'Germany'
+									GROUP BY
+										location_category
+									;
+									--
+									/*
+									united_states_remote_vs_onsite_jobs_query
+									*/
+									--
+									SELECT
+										'United States' AS job_location,
+									    COUNT(job_id) AS number_of_jobs,
+									    CASE
+									        WHEN job_work_from_home = True THEN 'Remote'
+									        WHEN job_work_from_home = False THEN 'Onsite'
+									        ELSE 'Unknown'
+									    END AS location_category
+									FROM
+									    job_postings_fact
+									WHERE
+									    job_country LIKE 'United States'
+									GROUP BY
+										location_category
+									;
+									--
+									/*
+									india_remote_vs_onsite_jobs_query
+									*/
+									--
+									SELECT
+										'India' AS job_location,
+									    COUNT(job_id) AS number_of_jobs,
+									    CASE
+									        WHEN job_work_from_home = True THEN 'Remote'
+									        WHEN job_work_from_home = False THEN 'Onsite'
+									        ELSE 'Unknown'
+									    END AS location_category
+									FROM
+									    job_postings_fact
+									WHERE
+									    job_country LIKE 'India'
+									GROUP BY
+										location_category
+									;
 								</code>
 							</details>
 						</blockquote>
@@ -2949,47 +3260,452 @@
 
 			<!-- 8th Group of Tabs and Contents -->
 			<input type="radio" name="tabs" id="tab_08" class="input-radio tabs__radio">
-			<label for="tab_08" class="label input-label tabs__label">Tab 08</label>
+			<label for="tab_08" class="label input-label tabs__label">Remote & Degree</label>
 			<div class="tab tabs__tab tab08__content">
-				<h2 class="h2 tab__heading tab08__heading">Tab 08 Content</h2>
+				<h2 class="h2 tab__heading tab08__heading">Job Features based on Remote Availability and Degree Requirement</h2>
 				<p class="p tab__text tab05__text" hidden>???</p>
 				<!-- Start exclusive details group -->
 				<section id="accordion" class="section accordion">
 					<!-- 1st details element -->
 					<details class="accordion-details details--01" name="faq-accordion">
-						<summary class="accordion-summary details__summary">Data Analyst</summary>
+						<summary class="accordion-summary details__summary">Remote Job Offers</summary>
 						<p class="p details__text" hidden>???</p>
-						<table></table>
+						<figure class="figure details__figure">
+							<img src="./images/min-mean-median-max-salaries-remote-jobs.svg" alt="Remote Jobs Salary Patterns" class="img figure__img details__img">
+							<figcaption class="figure__caption">Remote Jobs Salary Patterns</figcaption>
+						</figure>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr>
+						      <th></th>
+						      <th>job_title</th>
+						      <th>remote_job</th>
+						      <th colspan="4" halign="left">yearly_salary</th>
+						    </tr>
+						    <tr>
+						      <th></th>
+						      <th></th>
+						      <th></th>
+						      <th>min</th>
+						      <th>mean</th>
+						      <th>median</th>
+						      <th>max</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>1</th>
+						      <td>business analyst</td>
+						      <td>True</td>
+						      <td>16500.0</td>
+						      <td>95106.0</td>
+						      <td>85000.0</td>
+						      <td>220000.0</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>cloud engineer</td>
+						      <td>True</td>
+						      <td>60320.0</td>
+						      <td>149398.2</td>
+						      <td>176800.0</td>
+						      <td>204000.0</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>data analyst</td>
+						      <td>True</td>
+						      <td>16640.0</td>
+						      <td>93369.4</td>
+						      <td>89000.0</td>
+						      <td>650000.0</td>
+						    </tr>
+						    <tr>
+						      <th>7</th>
+						      <td>data engineer</td>
+						      <td>True</td>
+						      <td>16640.0</td>
+						      <td>128069.6</td>
+						      <td>130000.0</td>
+						      <td>383760.0</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>data scientist</td>
+						      <td>True</td>
+						      <td>18720.0</td>
+						      <td>131256.7</td>
+						      <td>130000.0</td>
+						      <td>550000.0</td>
+						    </tr>
+						    <tr>
+						      <th>11</th>
+						      <td>machine learning engineer</td>
+						      <td>True</td>
+						      <td>20800.0</td>
+						      <td>141559.2</td>
+						      <td>140400.0</td>
+						      <td>325000.0</td>
+						    </tr>
+						    <tr>
+						      <th>13</th>
+						      <td>senior data analyst</td>
+						      <td>True</td>
+						      <td>27040.0</td>
+						      <td>117563.9</td>
+						      <td>114500.0</td>
+						      <td>270400.0</td>
+						    </tr>
+						    <tr>
+						      <th>15</th>
+						      <td>senior data engineer</td>
+						      <td>True</td>
+						      <td>26000.0</td>
+						      <td>146026.4</td>
+						      <td>145600.0</td>
+						      <td>353600.0</td>
+						    </tr>
+						    <tr>
+						      <th>17</th>
+						      <td>senior data scientist</td>
+						      <td>True</td>
+						      <td>36400.0</td>
+						      <td>157091.9</td>
+						      <td>157500.0</td>
+						      <td>475000.0</td>
+						    </tr>
+						    <tr>
+						      <th>19</th>
+						      <td>software engineer</td>
+						      <td>True</td>
+						      <td>28000.0</td>
+						      <td>121059.3</td>
+						      <td>130000.0</td>
+						      <td>225000.0</td>
+						    </tr>
+						  </tbody>
+						</table>
 						<blockquote>
 							<details class="details">
-								<summary class="summary">SQL Query</summary>
+								<summary class="summary">Code</summary>
 								<code class="code">
+									grouper_title_remote = df_verbose.groupby(["job_title", "remote_job"]).agg({"yearly_salary": ["min", "mean", "median", "max"]}).round(1)
+									grouper_title_remote = grouper_title_remote.reset_index()
+									grouper_title_remote_jobs = grouper_title_remote.loc[grouper_title_remote["remote_job"] == True]
 								</code>
 							</details>
 						</blockquote>
 					</details>
 					<!-- 2nd details element -->
 					<details class="accordion-details details--02" name="faq-accordion">
-						<summary class="accordion-summary details__summary">Data Scientist</summary>
+						<summary class="accordion-summary details__summary">Onsite Job Offers</summary>
 						<p class="p details__text" hidden>???</p>
-						<table></table>
+						<figure class="figure details__figure">
+							<img src="./images/min-mean-median-max-salaries-onsite-jobs.svg" alt="Onsite Jobs Salary Patterns" class="img figure__img details__img">
+							<figcaption class="figure__caption">Onsite Jobs Salary Patterns</figcaption>
+						</figure>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr>
+						      <th></th>
+						      <th>job_title</th>
+						      <th>remote_job</th>
+						      <th colspan="4" halign="left">yearly_salary</th>
+						    </tr>
+						    <tr>
+						      <th></th>
+						      <th></th>
+						      <th></th>
+						      <th>min</th>
+						      <th>mean</th>
+						      <th>median</th>
+						      <th>max</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>business analyst</td>
+						      <td>False</td>
+						      <td>22536.8</td>
+						      <td>95349.0</td>
+						      <td>90000.0</td>
+						      <td>387460.0</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>cloud engineer</td>
+						      <td>False</td>
+						      <td>38480.0</td>
+						      <td>106720.0</td>
+						      <td>90000.0</td>
+						      <td>280000.0</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>data analyst</td>
+						      <td>False</td>
+						      <td>16640.0</td>
+						      <td>90022.2</td>
+						      <td>88400.0</td>
+						      <td>813280.0</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>data engineer</td>
+						      <td>False</td>
+						      <td>15000.0</td>
+						      <td>128300.9</td>
+						      <td>125000.0</td>
+						      <td>525000.0</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>data scientist</td>
+						      <td>False</td>
+						      <td>16640.0</td>
+						      <td>124559.1</td>
+						      <td>116950.0</td>
+						      <td>960000.0</td>
+						    </tr>
+						    <tr>
+						      <th>10</th>
+						      <td>machine learning engineer</td>
+						      <td>False</td>
+						      <td>30000.0</td>
+						      <td>125872.6</td>
+						      <td>108160.0</td>
+						      <td>315000.0</td>
+						    </tr>
+						    <tr>
+						      <th>12</th>
+						      <td>senior data analyst</td>
+						      <td>False</td>
+						      <td>30000.0</td>
+						      <td>109217.0</td>
+						      <td>111175.0</td>
+						      <td>425000.0</td>
+						    </tr>
+						    <tr>
+						      <th>14</th>
+						      <td>senior data engineer</td>
+						      <td>False</td>
+						      <td>27040.0</td>
+						      <td>143842.4</td>
+						      <td>147500.0</td>
+						      <td>425000.0</td>
+						    </tr>
+						    <tr>
+						      <th>16</th>
+						      <td>senior data scientist</td>
+						      <td>False</td>
+						      <td>39093.6</td>
+						      <td>142606.7</td>
+						      <td>145000.0</td>
+						      <td>890000.0</td>
+						    </tr>
+						    <tr>
+						      <th>18</th>
+						      <td>software engineer</td>
+						      <td>False</td>
+						      <td>22880.0</td>
+						      <td>110113.8</td>
+						      <td>98496.0</td>
+						      <td>375000.0</td>
+						    </tr>
+						  </tbody>
+						</table>
 						<blockquote>
 							<details class="details">
-								<summary class="summary">SQL Query</summary>
+								<summary class="summary">Code</summary>
 								<code class="code">
+									grouper_title_remote = df_verbose.groupby(["job_title", "remote_job"]).agg({"yearly_salary": ["min", "mean", "median", "max"]}).round(1)
+									grouper_title_remote = grouper_title_remote.reset_index()
+									grouper_title_remote_jobs = grouper_title_remote.loc[grouper_title_remote["remote_job"] == False]
 								</code>
 							</details>
 						</blockquote>
 					</details>
 					<!-- 3rd details element -->
 					<details class="accordion-details details--03" name="faq-accordion">
-						<summary class="accordion-summary details__summary">Data Engineer</summary>
+						<summary class="accordion-summary details__summary">Jobs Need Degree</summary>
 						<p class="p details__text" hidden>???</p>
-						<table></table>
+						<figure class="figure details__figure">
+							<img src="./images/job-postings-that-require-degree.svg" alt="Number of Jobs Needing Degrees" class="img figure__img details__img">
+							<figcaption class="figure__caption">Number of Jobs Needing Degrees</figcaption>
+						</figure>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>need_degree</th>
+						      <th>job_title</th>
+						      <th>number_of_jobs</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>10</th>
+						      <td>True</td>
+						      <td>business analyst</td>
+						      <td>35813</td>
+						    </tr>
+						    <tr>
+						      <th>11</th>
+						      <td>True</td>
+						      <td>cloud engineer</td>
+						      <td>23018</td>
+						    </tr>
+						    <tr>
+						      <th>12</th>
+						      <td>True</td>
+						      <td>data analyst</td>
+						      <td>218957</td>
+						    </tr>
+						    <tr>
+						      <th>13</th>
+						      <td>True</td>
+						      <td>data engineer</td>
+						      <td>439869</td>
+						    </tr>
+						    <tr>
+						      <th>14</th>
+						      <td>True</td>
+						      <td>data scientist</td>
+						      <td>35840</td>
+						    </tr>
+						    <tr>
+						      <th>15</th>
+						      <td>True</td>
+						      <td>machine learning engineer</td>
+						      <td>2707</td>
+						    </tr>
+						    <tr>
+						      <th>16</th>
+						      <td>True</td>
+						      <td>senior data analyst</td>
+						      <td>36670</td>
+						    </tr>
+						    <tr>
+						      <th>17</th>
+						      <td>True</td>
+						      <td>senior data engineer</td>
+						      <td>119827</td>
+						    </tr>
+						    <tr>
+						      <th>18</th>
+						      <td>True</td>
+						      <td>senior data scientist</td>
+						      <td>7957</td>
+						    </tr>
+						    <tr>
+						      <th>19</th>
+						      <td>True</td>
+						      <td>software engineer</td>
+						      <td>103907</td>
+						    </tr>
+						  </tbody>
+						</table>
 						<blockquote>
 							<details class="details">
-								<summary class="summary">SQL Query</summary>
+								<summary class="summary">Code</summary>
 								<code class="code">
+									grouper_need_n_degree = df_verbose.groupby(["need_degree", "job_title"]).agg("count")[["job_id"]]
+									grouper_need_n_degree = grouper_need_n_degree.reset_index()
+									grouper_need_n_degree.rename(columns={"job_id": "number_of_jobs"}, inplace=True)
+									grouper_need_degree = grouper_need_n_degree.loc[grouper_need_n_degree["need_degree"] == True]
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 4th details element -->
+					<details class="accordion-details details--04" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Job Does Not Need Degree</summary>
+						<p class="p details__text" hidden>???</p>
+						<figure class="figure details__figure">
+							<img src="./images/job-postings-that-did-not-require-degree.svg" alt="Number of Jobs Not Needing Degrees" class="img figure__img details__img">
+							<figcaption class="figure__caption">Number of Jobs Not Needing Degrees</figcaption>
+						</figure>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>need_degree</th>
+						      <th>job_title</th>
+						      <th>number_of_jobs</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>False</td>
+						      <td>business analyst</td>
+						      <td>109593</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>False</td>
+						      <td>cloud engineer</td>
+						      <td>26919</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>False</td>
+						      <td>data analyst</td>
+						      <td>455157</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>False</td>
+						      <td>data engineer</td>
+						      <td>713727</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>False</td>
+						      <td>data scientist</td>
+						      <td>792507</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>False</td>
+						      <td>machine learning engineer</td>
+						      <td>76326</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>False</td>
+						      <td>senior data analyst</td>
+						      <td>84928</td>
+						    </tr>
+						    <tr>
+						      <th>7</th>
+						      <td>False</td>
+						      <td>senior data engineer</td>
+						      <td>198731</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>False</td>
+						      <td>senior data scientist</td>
+						      <td>181492</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>False</td>
+						      <td>software engineer</td>
+						      <td>122981</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">Code</summary>
+								<code class="code">
+									grouper_need_n_degree = df_verbose.groupby(["need_degree", "job_title"]).agg("count")[["job_id"]]
+									grouper_need_n_degree = grouper_need_n_degree.reset_index()
+									grouper_need_n_degree.rename(columns={"job_id": "number_of_jobs"}, inplace=True)
+									grouper_need_degree = grouper_need_n_degree.loc[grouper_need_n_degree["need_degree"] == False]
 								</code>
 							</details>
 						</blockquote>
@@ -2999,18 +3715,806 @@
 
 			<!-- 9th Group of Tabs and Contents -->
 			<input type="radio" name="tabs" id="tab_09" class="input-radio tabs__radio">
-			<label for="tab_09" class="label input-label tabs__label">Tab 09</label>
+			<label for="tab_09" class="label input-label tabs__label">Compact DataFrame</label>
 			<div class="tab tabs__tab tab09__content">
-				<h2 class="h2 tab__heading tab09__heading">Tab 09 Content</h2>
-				<p class="p tab__text tab05__text" hidden>???</p>
+				<h2 class="h2 tab__heading tab09__heading">Merging Tables Contents to Create a Compact Dataset</h2>
+				<p class="p tab__text tab09__text">Merging the contents of the database tables to yield a single dataset for further analyses.</p>
+				<p class="p tab__text tab09__text">All the skills required for a job posting were aggregated under a single column.</p>
+				<p class="p tab__text tab09__text">More than 1.9M rows in 14 columns was obtained.</p>
+				<!-- Start exclusive details group -->
+				<section id="accordion" class="section accordion">
+					<!-- 1st details element -->
+					<details class="accordion-details details--01" name="faq-accordion">
+						<summary class="accordion-summary details__summary">From Postgres Tables</summary>
+						<p class="p details__text">In order to aggregate the various skills required by the job postings under a single column, the STRING_AGG() was used.</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>job_id</th>
+						      <th>job_title</th>
+						      <th>company_name</th>
+						      <th>job_location</th>
+						      <th>requested_skills</th>
+						      <th>field</th>
+						      <th>job_via</th>
+						      <th>job_schedule</th>
+						      <th>remote_job</th>
+						      <th>need_degree</th>
+						      <th>has_insurance</th>
+						      <th>country</th>
+						      <th>hourly_salary</th>
+						      <th>yearly_salary</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>0</td>
+						      <td>Data Analyst</td>
+						      <td>Cryptology</td>
+						      <td>Anywhere</td>
+						      <td>excel, tableau, power bi</td>
+						      <td>analyst_tools</td>
+						      <td>via LinkedIn</td>
+						      <td>Full-time</td>
+						      <td>True</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>Serbia</td>
+						      <td>None</td>
+						      <td>None</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>0</td>
+						      <td>Data Analyst</td>
+						      <td>Cryptology</td>
+						      <td>Anywhere</td>
+						      <td>sql, python</td>
+						      <td>programming</td>
+						      <td>via LinkedIn</td>
+						      <td>Full-time</td>
+						      <td>True</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>Serbia</td>
+						      <td>None</td>
+						      <td>None</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>1</td>
+						      <td>Data Analyst</td>
+						      <td>Point32Health</td>
+						      <td>West Bridgewater, MA</td>
+						      <td>excel, sas</td>
+						      <td>analyst_tools</td>
+						      <td>via Adzuna</td>
+						      <td>Full-time</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>True</td>
+						      <td>United States</td>
+						      <td>None</td>
+						      <td>None</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>1</td>
+						      <td>Data Analyst</td>
+						      <td>Point32Health</td>
+						      <td>West Bridgewater, MA</td>
+						      <td>sas, sql</td>
+						      <td>programming</td>
+						      <td>via Adzuna</td>
+						      <td>Full-time</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>True</td>
+						      <td>United States</td>
+						      <td>None</td>
+						      <td>None</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>2</td>
+						      <td>Data Analyst</td>
+						      <td>Apex Systems</td>
+						      <td>Naperville, IL</td>
+						      <td>power bi, ssis</td>
+						      <td>analyst_tools</td>
+						      <td>via LinkedIn</td>
+						      <td>Full-time</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>United States</td>
+						      <td>None</td>
+						      <td>None</td>
+						    </tr>
+						    <tr>
+						      <th>...</th>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						    </tr>
+						    <tr>
+						      <th>1910586</th>
+						      <td>1826669</td>
+						      <td>Data Scientist</td>
+						      <td>KTH Royal Institute of Technology</td>
+						      <td>Stockholm, Sweden</td>
+						      <td>None</td>
+						      <td>None</td>
+						      <td>via Trabajo.org</td>
+						      <td>Full-time</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>Sweden</td>
+						      <td>None</td>
+						      <td>None</td>
+						    </tr>
+						    <tr>
+						      <th>1910587</th>
+						      <td>1826673</td>
+						      <td>Data Scientist</td>
+						      <td>General Dynamics</td>
+						      <td>Bossier City, LA</td>
+						      <td>power bi, looker, tableau</td>
+						      <td>analyst_tools</td>
+						      <td>via BeBee</td>
+						      <td>Full-time</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>True</td>
+						      <td>United States</td>
+						      <td>None</td>
+						      <td>None</td>
+						    </tr>
+						    <tr>
+						      <th>1910588</th>
+						      <td>1826673</td>
+						      <td>Data Scientist</td>
+						      <td>General Dynamics</td>
+						      <td>Bossier City, LA</td>
+						      <td>bigquery, aws</td>
+						      <td>cloud</td>
+						      <td>via BeBee</td>
+						      <td>Full-time</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>True</td>
+						      <td>United States</td>
+						      <td>None</td>
+						      <td>None</td>
+						    </tr>
+						    <tr>
+						      <th>1910589</th>
+						      <td>1826673</td>
+						      <td>Data Scientist</td>
+						      <td>General Dynamics</td>
+						      <td>Bossier City, LA</td>
+						      <td>c#, java, javascript, python, r, sql</td>
+						      <td>programming</td>
+						      <td>via BeBee</td>
+						      <td>Full-time</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>True</td>
+						      <td>United States</td>
+						      <td>None</td>
+						      <td>None</td>
+						    </tr>
+						    <tr>
+						      <th>1910590</th>
+						      <td>1826678</td>
+						      <td>Data Scientist</td>
+						      <td>Citi</td>
+						      <td>New York, NY</td>
+						      <td>python, sql</td>
+						      <td>programming</td>
+						      <td>via LinkedIn</td>
+						      <td>Full-time</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>False</td>
+						      <td>United States</td>
+						      <td>None</td>
+						      <td>None</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<p>1910591 rows × 14 columns</p>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">Postgres SQL Query</summary>
+								<code class="code">
+									WITH cvd AS (
+									    SELECT DISTINCT
+									        jpf.job_id,
+									        jpf.job_title_short AS job_title,
+									        cd.name AS company_name,
+									        jpf.job_location AS job_location,
+									        sd.skills AS skill,
+									        sd.type AS field,
+									        jpf.job_via AS job_via,
+									        jpf.job_schedule_type AS job_schedule,
+									        jpf.job_work_from_home AS remote_job,
+									        jpf.job_no_degree_mention AS need_degree,
+									        jpf.job_health_insurance AS has_insurance,
+									        jpf.job_country AS country,
+									        jpf.salary_hour_avg AS hourly_salary,
+									        jpf.salary_year_avg AS yearly_salary
+									    FROM
+									        job_postings_fact AS jpf
+									        LEFT JOIN
+									        company_dim AS cd
+									        ON jpf.company_id = cd.company_id
+									        LEFT JOIN
+									        skills_job_dim AS sjd
+									        ON jpf.job_id = sjd.job_id
+									        LEFT JOIN
+									        skills_dim AS sd
+									        ON sjd.skill_id = sd.skill_id
+									    GROUP BY
+									        jpf.job_id,
+									        company_name,
+									        skill,
+									        field
+									)
+
+									SELECT
+										cvd.job_id,
+									    cvd.job_title,
+									    cvd.company_name,
+									    cvd.job_location,
+										STRING_AGG(cvd.skill, ', ') AS requested_skills,
+									    cvd.field,
+									    cvd.job_via,
+									    cvd.job_schedule,
+									    cvd.remote_job,
+									    cvd.need_degree,
+									    cvd.has_insurance,
+									    cvd.country,
+										cvd.hourly_salary AS hourly_salary,
+										cvd.yearly_salary AS yearly_salary
+									FROM
+										cvd
+									GROUP BY
+										cvd.job_id,
+									    cvd.job_title,
+									    cvd.company_name,
+									    cvd.job_location,
+									    cvd.field,
+									    cvd.job_via,
+									    cvd.job_schedule,
+									    cvd.remote_job,
+									    cvd.need_degree,
+									    cvd.has_insurance,
+									    cvd.country,
+									    cvd.hourly_salary,
+										cvd.yearly_salary
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 2nd details element -->
+					<details class="accordion-details details--02" name="faq-accordion">
+						<summary class="accordion-summary details__summary">From SQLite Tables</summary>
+						<p class="p details__text">SQLite lacks the STRING_AGG(), thus in order to aggregate the required skills under a single column, the GROUP_CONCAT() was used instead.</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>job_id</th>
+						      <th>job_title</th>
+						      <th>company_name</th>
+						      <th>job_location</th>
+						      <th>requested_skills</th>
+						      <th>field</th>
+						      <th>job_via</th>
+						      <th>job_schedule</th>
+						      <th>remote_job</th>
+						      <th>need_degree</th>
+						      <th>has_insurance</th>
+						      <th>country</th>
+						      <th>hourly_salary</th>
+						      <th>yearly_salary</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>0</th>
+						      <td>0</td>
+						      <td>Data Analyst</td>
+						      <td>Cryptology</td>
+						      <td>Anywhere</td>
+						      <td>excel, power bi, tableau</td>
+						      <td>analyst_tools</td>
+						      <td>via LinkedIn</td>
+						      <td>Full-time</td>
+						      <td>1</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>Serbia</td>
+						      <td>NaN</td>
+						      <td>NaN</td>
+						    </tr>
+						    <tr>
+						      <th>1</th>
+						      <td>0</td>
+						      <td>Data Analyst</td>
+						      <td>Cryptology</td>
+						      <td>Anywhere</td>
+						      <td>python, sql</td>
+						      <td>programming</td>
+						      <td>via LinkedIn</td>
+						      <td>Full-time</td>
+						      <td>1</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>Serbia</td>
+						      <td>NaN</td>
+						      <td>NaN</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>1</td>
+						      <td>Data Analyst</td>
+						      <td>Point32Health</td>
+						      <td>West Bridgewater, MA</td>
+						      <td>excel, sas</td>
+						      <td>analyst_tools</td>
+						      <td>via Adzuna</td>
+						      <td>Full-time</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>1</td>
+						      <td>United States</td>
+						      <td>NaN</td>
+						      <td>NaN</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>1</td>
+						      <td>Data Analyst</td>
+						      <td>Point32Health</td>
+						      <td>West Bridgewater, MA</td>
+						      <td>sas, sql</td>
+						      <td>programming</td>
+						      <td>via Adzuna</td>
+						      <td>Full-time</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>1</td>
+						      <td>United States</td>
+						      <td>NaN</td>
+						      <td>NaN</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>2</td>
+						      <td>Data Analyst</td>
+						      <td>Apex Systems</td>
+						      <td>Naperville, IL</td>
+						      <td>power bi, ssis</td>
+						      <td>analyst_tools</td>
+						      <td>via LinkedIn</td>
+						      <td>Full-time</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>United States</td>
+						      <td>NaN</td>
+						      <td>NaN</td>
+						    </tr>
+						    <tr>
+						      <th>...</th>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						      <td>...</td>
+						    </tr>
+						    <tr>
+						      <th>1910586</th>
+						      <td>1826669</td>
+						      <td>Data Scientist</td>
+						      <td>KTH Royal Institute of Technology</td>
+						      <td>Stockholm, Sweden</td>
+						      <td>None</td>
+						      <td>None</td>
+						      <td>via Trabajo.org</td>
+						      <td>Full-time</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>Sweden</td>
+						      <td>NaN</td>
+						      <td>NaN</td>
+						    </tr>
+						    <tr>
+						      <th>1910587</th>
+						      <td>1826673</td>
+						      <td>Data Scientist</td>
+						      <td>General Dynamics</td>
+						      <td>Bossier City, LA</td>
+						      <td>looker, power bi, tableau</td>
+						      <td>analyst_tools</td>
+						      <td>via BeBee</td>
+						      <td>Full-time</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>1</td>
+						      <td>United States</td>
+						      <td>NaN</td>
+						      <td>NaN</td>
+						    </tr>
+						    <tr>
+						      <th>1910588</th>
+						      <td>1826673</td>
+						      <td>Data Scientist</td>
+						      <td>General Dynamics</td>
+						      <td>Bossier City, LA</td>
+						      <td>aws, bigquery</td>
+						      <td>cloud</td>
+						      <td>via BeBee</td>
+						      <td>Full-time</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>1</td>
+						      <td>United States</td>
+						      <td>NaN</td>
+						      <td>NaN</td>
+						    </tr>
+						    <tr>
+						      <th>1910589</th>
+						      <td>1826673</td>
+						      <td>Data Scientist</td>
+						      <td>General Dynamics</td>
+						      <td>Bossier City, LA</td>
+						      <td>c#, java, javascript, python, r, sql</td>
+						      <td>programming</td>
+						      <td>via BeBee</td>
+						      <td>Full-time</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>1</td>
+						      <td>United States</td>
+						      <td>NaN</td>
+						      <td>NaN</td>
+						    </tr>
+						    <tr>
+						      <th>1910590</th>
+						      <td>1826678</td>
+						      <td>Data Scientist</td>
+						      <td>Citi</td>
+						      <td>New York, NY</td>
+						      <td>python, sql</td>
+						      <td>programming</td>
+						      <td>via LinkedIn</td>
+						      <td>Full-time</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>0</td>
+						      <td>United States</td>
+						      <td>NaN</td>
+						      <td>NaN</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<p>1910591 rows × 14 columns</p>
+						<blockquote>
+							<details class="details">
+								<summary class="summary">SQLite SQL Query</summary>
+								<code class="code">
+									WITH cvd AS (
+									    SELECT DISTINCT
+									        jpf.job_id,
+									        jpf.job_title_short AS job_title,
+									        cd.name AS company_name,
+									        jpf.job_location AS job_location,
+									        sd.skills AS skill,
+									        sd.type AS field,
+									        jpf.job_via AS job_via,
+									        jpf.job_schedule_type AS job_schedule,
+									        jpf.job_work_from_home AS remote_job,
+									        jpf.job_no_degree_mention AS need_degree,
+									        jpf.job_health_insurance AS has_insurance,
+									        jpf.job_country AS country,
+									        jpf.salary_hour_avg AS hourly_salary,
+									        jpf.salary_year_avg AS yearly_salary
+									    FROM
+									        job_postings_fact AS jpf
+									        LEFT JOIN
+									        company_dim AS cd
+									        ON jpf.company_id = cd.company_id
+									        LEFT JOIN
+									        skills_job_dim AS sjd
+									        ON jpf.job_id = sjd.job_id
+									        LEFT JOIN
+									        skills_dim AS sd
+									        ON sjd.skill_id = sd.skill_id
+									    GROUP BY
+									        jpf.job_id,
+									        company_name,
+									        skill,
+									        field
+									)
+
+									SELECT
+										cvd.job_id,
+									    cvd.job_title,
+									    cvd.company_name,
+									    cvd.job_location,
+										GROUP_CONCAT(cvd.skill, ', ') AS requested_skills,
+									    cvd.field,
+									    cvd.job_via,
+									    cvd.job_schedule,
+									    cvd.remote_job,
+									    cvd.need_degree,
+									    cvd.has_insurance,
+									    cvd.country,
+										cvd.hourly_salary AS hourly_salary,
+										cvd.yearly_salary AS yearly_salary
+									FROM
+										cvd
+									GROUP BY
+										cvd.job_id,
+									    cvd.job_title,
+									    cvd.company_name,
+									    cvd.job_location,
+									    cvd.field,
+									    cvd.job_via,
+									    cvd.job_schedule,
+									    cvd.remote_job,
+									    cvd.need_degree,
+									    cvd.has_insurance,
+									    cvd.country,
+									    cvd.hourly_salary,
+										cvd.yearly_salary
+									;
+								</code>
+							</details>
+						</blockquote>
+					</details>
+					<!-- 3rd details element -->
+					<details class="accordion-details details--03" name="faq-accordion">
+						<summary class="accordion-summary details__summary">EDA Summary</summary>
+						<p class="p details__text">Many of the samples had large percentages of missing values.</p>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>missing</th>
+						      <th>missing_%</th>
+						      <th>skew</th>
+						      <th>type</th>
+						      <th>num_unique</th>
+						      <th>p</th>
+						      <th>r</th>
+						      <th>tau</th>
+						      <th>rho</th>
+						      <th>y = m(x) + b</th>
+						      <th>F</th>
+						      <th>X2</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>job_title</th>
+						      <td>1827805</td>
+						      <td>95.667%</td>
+						      <td>--</td>
+						      <td>category</td>
+						      <td>10</td>
+						      <td>0.0</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>1634.6902</td>
+						      <td>--</td>
+						    </tr>
+						    <tr>
+						      <th>field</th>
+						      <td>1827805</td>
+						      <td>95.667%</td>
+						      <td>--</td>
+						      <td>category</td>
+						      <td>11</td>
+						      <td>0.0</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>282.3131</td>
+						      <td>--</td>
+						    </tr>
+						    <tr>
+						      <th>job_schedule</th>
+						      <td>1827805</td>
+						      <td>95.667%</td>
+						      <td>--</td>
+						      <td>category</td>
+						      <td>27</td>
+						      <td>0.0</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>79.5988</td>
+						      <td>--</td>
+						    </tr>
+						    <tr>
+						      <th>country</th>
+						      <td>1827805</td>
+						      <td>95.667%</td>
+						      <td>--</td>
+						      <td>category</td>
+						      <td>112</td>
+						      <td>0.0</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>--</td>
+						      <td>17.9153</td>
+						      <td>--</td>
+						    </tr>
+						  </tbody>
+						</table>
+						<p class="p details__text">Samples with missing values were dropped before proceeding to regression analysis and machine learning.</p>
+						<p class="p details__text">Thus, samples reduced from 1910591 to 82786.</p>
+					</details>
+				</section>
 			</div>
 
 			<!-- 10th Group of Tabs and Contents -->
 			<input type="radio" name="tabs" id="tab_10" class="input-radio tabs__radio">
-			<label for="tab_10" class="label input-label tabs__label">Tab 10</label>
+			<label for="tab_10" class="label input-label tabs__label">Machine Learning</label>
 			<div class="tab tabs__tab tab10__content">
-				<h2 class="h2 tab__heading tab10__heading">Tab 10 Content</h2>
-				<p class="p tab__text tab05__text" hidden>???</p>
+				<h2 class="h2 tab__heading tab10__heading">Yearly Salary Modelling</h2>
+				<p class="p tab__text tab10__text">Regression analysis was done to predict yearly salary using the features of the dataset.</p>
+				<p class="p tab__text tab10__text">Scikit-Learn MLPRegressor was chosen for its simplicity and similarity to modern neural networks.</p>
+				<p class="p tab__text tab10__text">CatBoost and LightGBM regressors were also chosen due to there native handling of categorical values.</p>
+				<p class="p tab__text tab10__text">A combination of sklearn HalvingGridSearch and scikit-optimize BayesSearchCV were used for hyperparameter optimisation.</p>
+				<!-- Start exclusive details group -->
+				<section id="accordion" class="section accordion">
+					<!-- 1st details element -->
+					<details class="accordion-details details--01" name="faq-accordion">
+						<summary class="accordion-summary details__summary">CatBoostRegressor</summary>
+						<p class="p details__text">CatBoostRegressor r2 score: 0.440</p>
+						<p class="p details__text">CatBoostRegressor rmse score: 35007.073</p>
+						<figure class="figure details__figure">
+							<img src="./images/top-10-features-predicting-yearly-salary-for-data-professionals.svg" alt="Top 10 Features Predicting Yearly Salary for Data Professionals" class="img figure__img details__img">
+							<figcaption class="figure__caption">Top 10 Features Predicting Yearly Salary for Data Professionals</figcaption>
+						</figure>
+						<table border="1" class="dataframe">
+						  <thead>
+						    <tr style="text-align: right;">
+						      <th></th>
+						      <th>feature</th>
+						      <th>importance</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th>1</th>
+						      <td>company_name</td>
+						      <td>41.545859</td>
+						    </tr>
+						    <tr>
+						      <th>0</th>
+						      <td>job_title</td>
+						      <td>23.395639</td>
+						    </tr>
+						    <tr>
+						      <th>5</th>
+						      <td>job_via</td>
+						      <td>18.633909</td>
+						    </tr>
+						    <tr>
+						      <th>2</th>
+						      <td>job_location</td>
+						      <td>10.958690</td>
+						    </tr>
+						    <tr>
+						      <th>6</th>
+						      <td>job_schedule</td>
+						      <td>1.841788</td>
+						    </tr>
+						    <tr>
+						      <th>3</th>
+						      <td>requested_skills</td>
+						      <td>0.922073</td>
+						    </tr>
+						    <tr>
+						      <th>8</th>
+						      <td>need_degree</td>
+						      <td>0.751036</td>
+						    </tr>
+						    <tr>
+						      <th>10</th>
+						      <td>country</td>
+						      <td>0.703790</td>
+						    </tr>
+						    <tr>
+						      <th>4</th>
+						      <td>field</td>
+						      <td>0.675885</td>
+						    </tr>
+						    <tr>
+						      <th>9</th>
+						      <td>has_insurance</td>
+						      <td>0.498662</td>
+						    </tr>
+						  </tbody>
+						</table>
+					</details>
+					<!-- 2nd details element -->
+					<details class="accordion-details details--02" name="faq-accordion">
+						<summary class="accordion-summary details__summary">MLPRegressor</summary>
+						<p class="p details__text">CatBoostEncoder from category-encoder package was used for the categorical features.</p>
+						<p class="p details__text">MLPRegressor r2 score: 0.529</p>
+						<p class="p details__text">MLPRegressor rmse score: 32100.038</p>
+					</details>
+					<!-- 3rd details element -->
+					<details class="accordion-details details--03" name="faq-accordion">
+						<summary class="accordion-summary details__summary">LGBMRegressor</summary>
+						<p class="p details__text">LGBMRegressor r2 score: 0.369</p>
+						<p class="p details__text">LGBMRegressor rmse score: 37165.073</p>
+					</details>
+				</section>
+				<p class="p tab__text tab10__text">MLPRegressor had the highest R2 score while CatBoostRegressor had the best feature importance explanations.</p>
+			</div>
+
+			<!-- 11th Group of Tabs and Contents -->
+			<input type="radio" name="tabs" id="tab_11" class="input-radio tabs__radio">
+			<label for="tab_11" class="label input-label tabs__label">Challenges & Resolution</label>
+			<div class="tab tabs__tab tab11__content">
+				<h2 class="h2 tab__heading tab11__heading">What Challenges Were Faced During This Project and How Were They Tackled?</h2>
+				<p class="p tab__text tab11__text">I encountered multiple challenges during this project.</p>
+				<!-- Start exclusive details group -->
+				<section id="accordion" class="section accordion">
+					<!-- 1st details element -->
+					<details class="accordion-details details--01" name="faq-accordion">
+						<summary class="accordion-summary details__summary">SQL Phase</summary>
+						<p class="p details__text" hidden>???</p>
+					</details>
+					<!-- 2nd details element -->
+					<details class="accordion-details details--02" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Data Exploration & Explanation Phase</summary>
+						<p class="p details__text" hidden>???</p>
+					</details>
+					<!-- 3rd details element -->
+					<details class="accordion-details details--03" name="faq-accordion">
+						<summary class="accordion-summary details__summary">Model Fine-tuning Phase</summary>
+						<p class="p details__text" hidden>???</p>
+					</details>
+				</section>
 			</div>
 		</section>
 	</main>
