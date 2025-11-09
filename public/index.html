@@ -4502,17 +4502,18 @@
 					<!-- 1st details element -->
 					<details class="accordion-details details--01" name="faq-accordion">
 						<summary class="accordion-summary details__summary">SQL Phase</summary>
-						<p class="p details__text" hidden>???</p>
+						<p class="p details__text">Postgres was throwing obscure connection error because of special characters in the user password. This was resolved by escaping the affected characters.</p>
+						<p class="p details__text">Incompatibility between SQL dialects between Postgres and SQLite. This was resolved by starting with ANSI SQL dialect, optimise on Postgres with finishing touches on SQLite.</p>
 					</details>
 					<!-- 2nd details element -->
 					<details class="accordion-details details--02" name="faq-accordion">
 						<summary class="accordion-summary details__summary">Data Exploration & Explanation Phase</summary>
-						<p class="p details__text" hidden>???</p>
+						<p class="p details__text">The large number of samples was a significant memory drain during analysis. Resolution was by running jobs in batches over days.</p>
 					</details>
 					<!-- 3rd details element -->
 					<details class="accordion-details details--03" name="faq-accordion">
 						<summary class="accordion-summary details__summary">Model Fine-tuning Phase</summary>
-						<p class="p details__text" hidden>???</p>
+						<p class="p details__text">The large feature matrix and hyperparameter space size was too much for my computer system to analyse without running out of resources. I had to utilise resources from Kaggle notebooks to finish the model fine-tuning.</p>
 					</details>
 				</section>
 			</div>
