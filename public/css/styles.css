@@ -560,6 +560,7 @@ html {
 
 .h1 {
 	line-height: initial;
+	color: var(--phthalo-blue);
 }
 
 /* Change web component from inline display */
