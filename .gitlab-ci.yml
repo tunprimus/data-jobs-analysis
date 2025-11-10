@@ -1,0 +1,8 @@
+image: alpine
+pages:
+  stage: deploy
+  artifacts:
+    paths:
+      - public
+  only:
+  - main
